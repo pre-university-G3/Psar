@@ -28,7 +28,7 @@ export function NavbarComponent() {
       </div>
       <NavbarToggle />
       <NavbarCollapse>
-        <NavbarLink href="#">Home</NavbarLink>
+        <NavbarLink href="#">Laptopp</NavbarLink>
         <NavbarLink>
           <MegaMenuDropdown toggle={<>Company</>}>
             <ul className="grid grid-cols-3">
