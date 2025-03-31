@@ -1,14 +1,22 @@
-import './App.css'
-import { NavbarComponent } from './components/button/navbar/NavbarComponent'
+import { createBrowserRouter, RouterProvider } from 'react-router';
+import './App.css';
+import Home from './pages/Home';
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />,
+    },
+    {
+      path: "/about",
+      element: <h2>About Us</h2>,
+    }
+  ]);
 
   return (
-    <>
-    {/* <NavbarComponent> </NavbarComponent> // to call component */}
-    <p>hi</p>
-    </>
-  )
+    <RouterProvider router={router} />
+  );
 }
 
-export default App
+export default App;
