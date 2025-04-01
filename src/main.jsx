@@ -16,11 +16,6 @@ createRoot(document.getElementById("root")).render(
       <Route element = {<RootLayout/>}>
         <Route path="/homepage" element={<Home/>} />
         <Route path="/aboutus" element={<Aboutus/>} />
-        <Route path="/payment" element= {<Payment/>}/>
-        <Route path="/productlisting" element= {<ProductListing/>}/>
-        <Route path="/shoppingcart" element= {<ShoppingCart/>}/>
-        <Route path="/signin" element= {<SignIn/>}/>
-        <Route path="/privacypolicy" element= {<PrivacyPolicy/>}/>
       </Route>
     </Routes>
   </BrowserRouter>
