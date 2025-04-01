@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { FaMoon, FaSun, FaBars, FaTimes } from "react-icons/fa";
 // Make sure this path is correct - adjust according to your project structure
-import logo from '../../../../public/logo/image copy.png';
-
+import logo from "../../../public/logo/logo.png";
  function NavbarComponent() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
@@ -51,7 +50,7 @@ import logo from '../../../../public/logo/image copy.png';
   };
 
   const isMobile = windowWidth < 768;
-  const isTablet = windowWidth >= 768 && windowWidth < 1024;
+  // const isTablet = windowWidth >= 768 && windowWidth < 1024;
   const isLaptop = windowWidth >= 1024;
 
   return (
