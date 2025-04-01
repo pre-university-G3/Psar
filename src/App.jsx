@@ -1,9 +1,15 @@
+import { createBrowserRouter, RouterProvider } from "react-router";
 import "./App.css";
-import Home from "./page/home/Home";
+import RootLayout from "./components/layout/RootLayout";
+import NavbarComponent from "./components/button/navbar/NavbarComponent";
+import ShoppingCart from "./page/shoppingcart/ShoppingCart";
+
 function App() {
+ 
   return (
     <>
-      <Home></Home>
+    <NavbarComponent />
+    <ShoppingCart/>
     </>
   );
 }
