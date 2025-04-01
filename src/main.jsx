@@ -6,7 +6,11 @@ import { NavbarComponent } from "./components/button/navbar/NavbarComponent.jsx"
 import { BrowserRouter, Routes, Route } from "react-router";
 import { Aboutus } from "./page/aboutus/Aboutus.jsx";
 import RootLayout from "./components/layout/RootLayout.jsx";
+<<<<<<< HEAD
 import Home from "./page/aboutus/homepage/Home.jsx";
+=======
+import Home from "./page/homepage/Home.jsx";
+>>>>>>> da1550b23a6d4093f7bc9c02496d1cd5cda6e435
 
 
 createRoot(document.getElementById("root")).render(
