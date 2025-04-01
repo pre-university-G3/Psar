@@ -8,7 +8,7 @@
 // succesfully thanks
 
 
-
+//how to use flowbite
 // step 1 copy copy flowbite and paste in file
 // step 2 comand  " npm i " note * we 're all in Tech-Seven folder
 // step 3 comand "npm run dev "
@@ -17,29 +17,19 @@
 
 
 
+//how to pull code 
+// step 1 "git add ." that mean pull all file code to git hub
+// git commit -m "message"
+// git pull origin main
+// npm i
+// npm run dev
 
-import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from "flowbite-react";
-import Link from "next/link";
 
-export function ProductDetail() {
-  return (
-    <Navbar fluid rounded>
-      <NavbarBrand as={Link} href="https://flowbite-react.com">
-        <img src="/favicon.svg" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite React</span>
-      </NavbarBrand>
-      <NavbarToggle />
-      <NavbarCollapse>
-        <NavbarLink href="#" active>
-          Home
-        </NavbarLink>
-        <NavbarLink as={Link} href="#">
-          About
-        </NavbarLink>
-        <NavbarLink href="#">Services</NavbarLink>
-        <NavbarLink href="#">Pricing</NavbarLink>
-        <NavbarLink href="#">Contact</NavbarLink>
-      </NavbarCollapse>
-    </Navbar>
-  );
-}
+
+
+//how to update clone  project
+//
+
+
+
+

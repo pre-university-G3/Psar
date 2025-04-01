@@ -8,11 +8,14 @@ import {
   NavbarToggle,
 } from "flowbite-react";
 
+import image from "../../../../public/logo/image.png"
+import { NavLink } from "react-router";
+
 export function NavbarComponent() {
   return (
     <MegaMenu>
       <NavbarBrand href="/">
-        <img alt="" src="/favicon.svg" className="mr-3 h-6 sm:h-9" />
+        <img alt="" src= {image} className="mr-3 h-6 sm:h-9" />
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
           Flowbite
         </span>
@@ -34,12 +37,12 @@ export function NavbarComponent() {
             <ul className="grid grid-cols-3">
               <div className="space-y-4 p-4">
                 <li>
-                  <a
-                    href="#"
+                  <NavLink
+                    to="/aboutus"
                     className="hover:text-primary-600 dark:hover:text-primary-500"
                   >
                     About Us
-                  </a>
+                  </NavLink>
                 </li>
                 <li>
                   <a
