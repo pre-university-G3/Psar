@@ -4,8 +4,8 @@ import NavbarComponent from "../navbar/NavbarComponent";
 export default function RootLayout() {
     return (
         <>
-        <NavbarComponent/>
-        <Outlet/> 
+            <NavbarComponent/>
+            <Outlet/> 
         </>
     ) 
 }

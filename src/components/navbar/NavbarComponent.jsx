@@ -54,7 +54,7 @@ import logo from "../../../public/logo/logo.png";
   const isLaptop = windowWidth >= 1024;
 
   return (
-    <header className={`fixed w-full z-50 ${isScrolled ? "bg-neutral-800 shadow-lg" : "bg-neutral-800"}`}>
+    <header className={`fixed top-0 w-full z-50 ${isScrolled ? "bg-neutral-800 shadow-lg" : "bg-neutral-800"}`}>
       <nav className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           {/* Logo */}

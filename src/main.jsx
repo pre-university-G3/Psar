@@ -9,9 +9,6 @@ import Home from "./page/homepage/Home.jsx";
 import ShoppingCart from "./page/shoppingcart/ShoppingCart.jsx";
 import ProductListing from "./page/productlisting/ProductListing.jsx";
 
-
-
-
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
