@@ -1,4 +1,4 @@
-import Logo from '../../../public/logo/image copy.png';
+import Logo from '../../../public/logo/logo.png';
 import School from '../../../public/logo/image.png';
 
 const FooterComponent = () => {
