@@ -9,8 +9,8 @@ function App() {
  
   return (
     <>
-    <NavbarComponent />
-    <ShoppingCart/>
+    <NavbarComponent/>
+    <ShoppingCart/> 
     <FooterComponent/>
     </>
   );
