@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { FaBars, FaTimes, FaMoon, FaSun } from "react-icons/fa"; // Added FaMoon and FaSun
+import { FaBars, FaTimes, FaMoon, FaSun } from "react-icons/fa"; // Added FaMoon and FaSun
 
 const ShoppingCart = () => {
   const [cartItems, setCartItems] = useState([

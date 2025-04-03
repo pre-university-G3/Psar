@@ -3,7 +3,7 @@ import School from '../../../public/logo/image.png';
 
 const FooterComponent = () => {
     return (
-      <footer className="bg-neutral-800 py-10 px-4 sm:px-6 lg:px-8 text-white">
+      <footer className="bg-neutral-800 py-10 px-4 sm:px-6 lg:px-8 text-white mt-35">
         <div className="max-w-8xl mx-auto">
           {/* Main footer content - responsive grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8">
