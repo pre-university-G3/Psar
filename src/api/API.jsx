@@ -11,7 +11,7 @@ const APIComponent = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('../api/');
+        const response = await fetch('');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
