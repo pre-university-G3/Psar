@@ -2,20 +2,24 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
-import { NavbarComponent } from "./components/button/navbar/NavbarComponent.jsx";
 import { BrowserRouter, Routes, Route } from "react-router";
 import { Aboutus } from "./page/aboutus/Aboutus.jsx";
 import RootLayout from "./components/layout/RootLayout.jsx";
 import Home from "./page/homepage/Home.jsx";
-
+import ShoppingCart from "./page/shoppingcart/ShoppingCart.jsx";
+import ProductListing from "./page/productlisting/ProductListing.jsx";
+import ProductDetail from "./page/productdetail/ProductDetail.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
     <Routes>
       <Route element = {<RootLayout/>}>
-        <Route path="/homepage" element={<Home/>} />
+        <Route path="/" element={<Home/>} />
         <Route path="/aboutus" element={<Aboutus/>} />
+        <Route path="/shopping-cart" element={<ShoppingCart/>}/>
+        <Route path="/product-listing" element={<ProductListing/>}/>
+        <Route path="/product-detail" element={<ProductDetail/>}/>
       </Route>
     </Routes>
   </BrowserRouter>

@@ -1,0 +1,1542 @@
+{
+	"info": {
+		"_postman_id": "5e6504d0-4f67-4288-92dc-b0518088db7f",
+		"name": "TECHCO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27107018"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"duri\",\n    \"phoneNumber\": \"0987654321\",\n    \"address\": {\n        \"addressLine1\": \"Touk Kouk\",\n        \"addressLine2\": \"Toul Tum Pung\",\n        \"road\": \"Veng Sreng\",\n        \"linkAddress\": \"\"\n    },\n    \"email\": \"duri@gmail.com\",\n    \"password\": \"Jipor@009\",\n    \"confirmPassword\": \"Jipor@009\",\n    \"profile\": \"https://lh3.googleusercontent.com/a/ACg8ocJ2qGEvNcbTE-FtifsWzCbtON37Uak6lG3oLBqaLz98ahnK3w=s96-c\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/users/user-signup?emailVerified=false",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"user-signup"
+							],
+							"query": [
+								{
+									"key": "emailVerified",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/users/verify-email?token=805304",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"verify-email"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "805304"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgetPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"srengchipor99@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/users/forgot-password",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "setNewPassword",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"srengchipor99@gmail.com\",\n    \"newPassword\": \"Jipor@9999\",\n    \"confirmPassword\": \"Jipor@9999\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/users/set-new-password?token=078752",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"set-new-password"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "078752"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateImage",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"srengchipor99@gmail.com\",\n    \"newPassword\": \"Jipor@168\",\n    \"confirmPassword\": \"Jipor@168\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/users/upload-image/f13508f5-93aa-4ec6-a243-78e01eea033f",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"upload-image",
+								"f13508f5-93aa-4ec6-a243-78e01eea033f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllUsers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/users",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserByUuid",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/users/ba3ea4a3-7332-4999-8fe0-3977b29dc02c",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"ba3ea4a3-7332-4999-8fe0-3977b29dc02c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/users/me",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"tinfyloo\",\n    \"phoneNumber\": \"0987654321\",\n    \"address\": {\n        \"addressLine1\": \"Touk Kouk\",\n        \"addressLine2\": \"Toul Tum Pung\",\n        \"road\": \"Veng Sreng\",\n        \"linkAddress\": \"\"\n    },\n    \"profile\": \"https://ishop-api.istad.co/media/24b5e024-e4ea-4157-b7ec-18c63260cbc5.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/users/4848fbb0-557a-4345-ae64-9f63b7125435",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"4848fbb0-557a-4345-ae64-9f63b7125435"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/users/delete-user/{userUuid}",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"delete-user",
+								"{userUuid}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/users/{userUuid}",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{userUuid}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"var accessToken = jsonData.accessToken;",
+									"",
+									"pm.environment.set(\"accessToken\", accessToken)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"iodinn08@gmail.com\",\n    \"password\": \"odinnQwer1234@\"\n    // \"email\": \"cheysomatra@gmail.com\",\n    // \"password\": \"stringstd\"\n\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/auth/login",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							],
+							"query": [
+								{
+									"key": "emailVerified",
+									"value": "true",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refreshToken\": \"eyJraWQiOiJlM2MyOWNiZi0wMjQxLTQ2ZDYtYTBiMi01NjM4ZGJmZTA5MjIiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJSZWZyZXNoIFJlc291cmNlIiwiYXVkIjpbIldFQiIsIk1PQklMRSJdLCJzY29wZSI6InVzZXI6cmVhZCB1c2VyOndyaXRlIGFkbWluOnJlYWQgYWRtaW46d3JpdGUgdXNlcjpyZWFkIHVzZXI6d3JpdGUiLCJpc3MiOiJzcmVuZ2NoaXBvcjk5QGdtYWlsLmNvbSIsImV4cCI6MTc0MDgxOTE4NSwiaWF0IjoxNzQwNzMyNzg1LCJqdGkiOiJzcmVuZ2NoaXBvcjk5QGdtYWlsLmNvbSJ9.IQu4wpZiqWCP90HDn444xMm6NDrJMyDw9xD4_1hWo4VVH6nPxHPIeHCUkoaplF6gtavBPHd-0RoXx3ptZi0eA8ZOslDPY2NMVrDKz92r5iAoraTEcjRoxY7EXUMY6RTDTiA7XJwqoKhL4UAZJIMslvbqqcSqggP_CWzN378wAKuC8jVbdelrfjCjUGrIGGDKR3j364npzekMQxwJuW-jUxI00R8WDjubUWc-bjP0zWJ7Ot3vNm2DHAtJBpHCUGnKePLkt7VCI_bTm0Mq_PRDrywxtyp0eUehqL7VCJh1cTxVLHr7vKLctyAwjSM8KdHPjOk8oJ62T8Lbu5Bw3TLrMA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/auth/refresh",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "createProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"iPhone 16 Pro Max\",\n  \"description\": \"Flagship smartphone featuring the A19 Bionic chip, a 48MP triple-camera system, and a 120Hz ProMotion display with Dynamic Island.\",\n  \"computerSpec\": {\n    \"processor\": \"Apple A19 Bionic\",\n    \"ram\": \"12GB\",\n    \"storage\": \"256GB\",\n    \"gpu\": \"Apple Custom GPU\",\n    \"os\": \"iOS 18\",\n    \"screenSize\": \"6.9 inches OLED, 120Hz\",\n    \"battery\": \"4500mAh, MagSafe & Fast Charging\"\n  },\n  \"stockQuantity\": 30,\n  \"priceIn\": 1299.99,\n  \"priceOut\": 1499.99,\n  \"discount\": 0.05,\n  \"color\": \"Space Black\",\n  \"thumbnail\": \"https://example.com/images/iphone-17-pro-max-thumbnail.webp\",\n  \"warranty\": \"1 Year Apple Limited Warranty\",\n  \"availability\": true,\n  \"images\": [\n    \"https://example.com/images/iphone-17-pro-max-front.webp\",\n    \"https://example.com/images/iphone-17-pro-max-back.webp\",\n    \"https://example.com/images/iphone-17-pro-max-side.webp\"\n  ],\n  \"categoryUuid\": \"84a56ca5-c490-4102-9c05-accedb8f9614\",\n  \"supplierUuid\": \"743415f8-e385-4e16-98b1-9b45749d0c06\",\n  \"brandUuid\": \"fde730bb-9006-4783-a1f9-a8c18ba11005\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/products",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/products",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByUuid",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/products/8b8ea179-bc42-4c52-abb6-2c0cf7414e17",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"8b8ea179-bc42-4c52-abb6-2c0cf7414e17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/products/get-by-category/84a56ca5-c490-4102-9c05-accedb8f9614",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"get-by-category",
+								"84a56ca5-c490-4102-9c05-accedb8f9614"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByBrand",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/products/get-by-brand/f3fe64ea-0176-4be7-bcb5-d4ddb2983cf2",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"get-by-brand",
+								"f3fe64ea-0176-4be7-bcb5-d4ddb2983cf2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateByUuid",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Samsung Galaxy S30 Ultra\",\n  \"description\": \"Flagship smartphone with A17 Bionic chip, 48MP camera, and Dynamic Island\",\n  \"stockQuantity\": 250,\n  \"priceIn\": 1099.99,\n  \"priceOut\": 0.5,\n  \"discount\": 0.1,\n  \"color\": \"Space Black\",\n  \"thumbnail\": \"https://smartaxiata-website-prod-v2.s3.ap-southeast-1.amazonaws.com/i_Phone_1280x853px_15_Pro_Max_cfdd766c9c.png\",\n  \"warranty\": \"1 Year Apple Limited Warranty\",\n  \"availability\": true,\n  \"images\": [\n    \"https://example.com/images/iphone-15-pro-max-front.webp\",\n    \"https://example.com/images/iphone-15-pro-max-back.webp\"\n  ],\n  \"categoryUuid\": \"55f56895-cbca-483f-920a-04c49752a902\",\n  \"supplierUuid\": \"f889f368-7625-4967-b24d-3b7c64228dbf\",\n  \"brandUuid\": \"f3fe64ea-0176-4be7-bcb5-d4ddb2983cf2\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/products/8b8ea179-bc42-4c52-abb6-2c0cf7414e17",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"8b8ea179-bc42-4c52-abb6-2c0cf7414e17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteByUuid",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/products/ac4cb7d5-8ef9-499b-b51f-1186455d4953",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"ac4cb7d5-8ef9-499b-b51f-1186455d4953"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "createCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n    \"name\": \"phone\",\n    \"description\": \"This is the best phone\",\n    \"media\": \"https://static.independent.co.uk/2024/09/06/13/Best-android-phones-hero-indybest.jpg\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/categories",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/categories",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByUuid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/categories/ab5e5676-45bd-44c8-b4e3-c2f5fe2e80a7",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"ab5e5676-45bd-44c8-b4e3-c2f5fe2e80a7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteByUuid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/categories/categoryUuid",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"categoryUuid"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateByUuid",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n    \"name\": \"phone\",\n    \"description\": \"This is the best phone ever\",\n    \"media\": \"https://static.independent.co.uk/2024/09/06/13/Best-android-phones-hero-indybest.jpg\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/categories/55f56895-cbca-483f-920a-04c49752a902",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"55f56895-cbca-483f-920a-04c49752a902"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "brand",
+			"item": [
+				{
+					"name": "createBrand",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Sumsung\",\n    \"description\": \"The most modern technology\",\n    \"brandLogo\": \"https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/brands",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/brands",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByUuid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/brands/14999799-0145-4b30-acc2-413a23268167",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"14999799-0145-4b30-acc2-413a23268167"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteByUuid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/brands/{brandUuid}",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{brandUuid}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateByUuid",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/brands/{brandUuid}",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{brandUuid}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "supplier",
+			"item": [
+				{
+					"name": "createSupplier",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Apple Inc.\",\n    \"email\": \"contact@apple.com\",\n    \"phone\": \"+1-800-692-7753\",\n    \"address\": {\n        \"addressLine1\": \"1 Apple Park Way\",\n        \"addressLine2\": \"Cupertino, CA\",\n        \"road\": \"Infinite Loop\",\n        \"linkAddress\": \"https://www.apple.com/contact/\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/suppliers",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"suppliers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/suppliers",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"suppliers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByUuid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/suppliers/39c77706-e992-4201-8d33-8ff0b457419b",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"suppliers",
+								"39c77706-e992-4201-8d33-8ff0b457419b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteByUuid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/suppliers/",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"suppliers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateByUuid",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/suppliers/{supplierUuid}",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"suppliers",
+								"{supplierUuid}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cart",
+			"item": [
+				{
+					"name": "addToCart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userUuid\": \"ba3ea4a3-7332-4999-8fe0-3977b29dc02c\",\n    \"productUuid\": \"8b8ea179-bc42-4c52-abb6-2c0cf7414e17\",\n    \"quantity\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/carts/add-to-cart",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"carts",
+								"add-to-cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removeQtyByOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/carts/remove-quantity/698f8481-4ec8-4b0c-8a56-acfa24f4cf80",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"carts",
+								"remove-quantity",
+								"698f8481-4ec8-4b0c-8a56-acfa24f4cf80"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addQuantity",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/carts/add-quantity/698f8481-4ec8-4b0c-8a56-acfa24f4cf80",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"carts",
+								"add-quantity",
+								"698f8481-4ec8-4b0c-8a56-acfa24f4cf80"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCartByUserUuid",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/carts/get-by-user/ba3ea4a3-7332-4999-8fe0-3977b29dc02c",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"carts",
+								"get-by-user",
+								"ba3ea4a3-7332-4999-8fe0-3977b29dc02c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removeAllItems",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/carts/21d92268-523c-4f92-9640-da10a6f97b9b",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"carts",
+								"21d92268-523c-4f92-9640-da10a6f97b9b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bakongPayment",
+			"item": [
+				{
+					"name": "generateIndividualQr",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userUuid\": \"ba3ea4a3-7332-4999-8fe0-3977b29dc02c\",\n    \"orderUuid\": \"d2028e86-0dfd-48e6-af45-43c846432388\",\n    \"currency\": \"USD\",\n    \"city\": \"Phnom Penh\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/bakong-payment/generate-individual-qr",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"bakong-payment",
+								"generate-individual-qr"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "makeQr",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"qr\" : \"00020101021229440017sreng_chipor@aclb01095002145650206acleda52045999530384054030.55802KH5905iSHOP6010Phnom Penh99170013174053620611263042125\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/bakong-payment/generate-qr",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"bakong-payment",
+								"generate-qr"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verifiy-md5",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"md5\": \"9d7a6c8199905879402a3533fe9304f8\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api-bakong.nbc.gov.kh/v1/check_transaction_by_md5",
+							"protocol": "https",
+							"host": [
+								"api-bakong",
+								"nbc",
+								"gov",
+								"kh"
+							],
+							"path": [
+								"v1",
+								"check_transaction_by_md5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "placeOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/orders/place-order/ba3ea4a3-7332-4999-8fe0-3977b29dc02c/90d3f2b6-e89b-4aa3-b329-bae12563a1f5",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"place-order",
+								"ba3ea4a3-7332-4999-8fe0-3977b29dc02c",
+								"90d3f2b6-e89b-4aa3-b329-bae12563a1f5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOrderByUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/orders/{userUuid}",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"{userUuid}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateStatus",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/orders/update-status/{orderUuid}",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"update-status",
+								"{orderUuid}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancelOrder",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/orders/cancel-order/{orderUuid}",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"cancel-order",
+								"{orderUuid}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "payment",
+			"item": [
+				{
+					"name": "makePayment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/payments/{userUuid}/{orderUuid}",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"payments",
+								"{userUuid}",
+								"{orderUuid}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllPayments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/payments",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "media",
+			"item": [
+				{
+					"name": "uploadSingle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/jipor/Downloads/wukong.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/medias/upload-single",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"medias",
+								"upload-single"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uploadMultiple",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{TECHCO_URL}}/api/v1/medias/upload-multiple",
+							"host": [
+								"{{TECHCO_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"medias",
+								"upload-multiple"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "TECHCO_URL",
+			"value": "https://ishop-api.istad.co",
+			"type": "string"
+		}
+	]
+}

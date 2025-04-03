@@ -5,21 +5,24 @@ import Home from './page/homepage/Home';
 
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />,
-    },
-    {
-      path: "/about",
-      element: <h2>About Us</h2>,
-    },
+  // const router = createBrowserRouter([
+  //   {
+  //     path: "/",
+  //     element: <Home />,
+  //   },
+  //   {
+  //     path: "/about",
+  //     element: <h2>About Us</h2>,
+  //   },
     
      
-  ]);
+  // ]);
 
   return (
-    <RouterProvider router={router} />
+    // <RouterProvider router={router} />
+    <div>
+      
+    </div>
   );
 }
 
