@@ -8,7 +8,7 @@ const HomePage = () => {
     price,
     freeDelivery,
     warranty,
-    image: "/product-image.jpg" // Replace with actual image path
+    image: "https://dlcdnwebimgs.asus.com/gain/30B02883-1847-4CA8-80AC-393A69BB7CD2/w250" // Replace with actual image path
   });
 
   // Create product arrays
@@ -26,7 +26,7 @@ const HomePage = () => {
       textColor: "text-white",
       accentColor: "bg-red-600",
       buttonText: "Shop Now",
-      image: "/lenovo-laptop.jpg" // Replace with actual image
+      image: "https://p2-ofp.static.pub/ShareResource/na/subseries/gallery/lenovo-legion-slim-5-gen8-16inch-amd-02.png" // Replace with actual image
     },
     {
       id: 2,
@@ -36,7 +36,7 @@ const HomePage = () => {
       textColor: "text-white",
       accentColor: "bg-red-600",
       buttonText: "Shop Now",
-      image: "/rog-monitor.jpg" // Replace with actual image
+      image: "https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/scar_17_teaser.png" // Replace with actual image
     },
     {
       id: 3,
@@ -46,14 +46,14 @@ const HomePage = () => {
       textColor: "text-white",
       accentColor: "bg-red-600",
       buttonText: "Shop Now",
-      image: "/msi-desktop.jpg" // Replace with actual image
+      image: "https://asset.msi.com/resize/image/global/product/product_1737602995c95879e6463325254f810682a141b82d.png62405b38c58fe0f07fcef2367d8a9ba1/400.png" // Replace with actual image
     }
   ];
 
   // Product card component
   const ProductCard = ({ product }) => (
-    <div className="bg-white rounded-lg p-4 flex flex-col">
-      <div className="bg-gray-100 rounded-lg mb-3 p-4 flex justify-center">
+    <div className=" ring-1 ring-gray-300 rounded-lg p-4 flex flex-col">
+      <div className="bg-blue-50 rounded-lg mb-3 p-4 flex justify-center">
         <img 
           src={product.image} 
           alt={product.name}
@@ -95,17 +95,17 @@ const HomePage = () => {
   );
 
   return (
-    <div className="min-h-screen bg-pink-50">
+    <div className="min-h-screen ">
       {/* Hero Section */}
-      <div className="container mx-auto max-w-6xl px-4 py-8">
-        <div className="bg-white rounded-lg p-8 flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-6 md:mb-0 md:pr-8">
+      <div className="container mx-auto  max-w-6xl px-4 py-5">
+        <div className=" rounded-lg  mt-25 p-8 flex flex-col md:flex-row items-center">
+          <div className="md:w-1/2 mb-6 md:mb-0 md:pr-8 ">
             <h1 className="text-3xl font-bold mb-2">
               Power meets speed. 
               <br />
               The ultimate gaming laptop of 2025.
             </h1>
-            <p className="text-gray-700 mb-6">
+            <p className="  mb-6">
               Dominate every game with ultra-fast performance, cutting-edge graphics, and immersive visuals. Built for gamers, creators, and power users.
             </p>
             <button className="bg-purple-600 text-white py-2 px-6 rounded-full hover:bg-purple-700">
@@ -114,7 +114,7 @@ const HomePage = () => {
           </div>
           <div className="md:w-1/2">
             <img 
-              src="/hero-laptop.png" 
+              src="https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/scar_17_teaser.png" 
               alt="ROG Gaming Laptop" 
               className="w-full"
             />

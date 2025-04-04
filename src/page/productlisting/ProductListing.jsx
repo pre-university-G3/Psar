@@ -34,7 +34,7 @@ const ProductListing = () => {
     price: 499.00,
     freeDelivery: true,
     warranty: "1 Year Warranty",
-    image: "/product-image.jpg" // Replace with actual image path
+    image: "https://dlcdnwebimgs.asus.com/gain/30B02883-1847-4CA8-80AC-393A69BB7CD2/w250" // Replace with actual image path
   }));
 
   const toggleCategory = (category) => {
@@ -58,18 +58,18 @@ const ProductListing = () => {
   };
 
   return (
-    <div className="pt-16 min-h-screen bg-pink-50">
+    <div className="pt-16 min-h-screen ">
       {/* Header Banner */}
-      <div className="bg-pink-100 p-4 mb-6">
-        <div className="container mx-auto max-w-6xl">
-          <div className="relative py-8 px-6 rounded-lg bg-white/70 backdrop-blur-sm">
-            <h1 className="text-2xl font-bold">
+      <div className=" p-4 mb-6">
+        <div className="container  mx-auto max-w-6xl">
+          <div className="relative py-8 px-6 rounded-lg bg-blue-50 backdrop-blur-sm">
+            <h1 className="text-2xl text-black font-bold">
               You're choose the <span className="text-purple-500">Right</span> place to buy your favorite thing!
             </h1>
-            <h2 className="text-4xl font-bold text-gray-300">Apple iMac</h2>
+            <h2 className="text-4xl font-bold text-black">Apple iMac</h2>
             <div className="absolute right-8 top-1/2 -translate-y-1/2">
               <img 
-                src="/imac-lineup.png" 
+                src="https://dlcdnwebimgs.asus.com/gain/30B02883-1847-4CA8-80AC-393A69BB7CD2/w250" 
                 alt="Apple iMac Lineup" 
                 className="h-24"
               />
@@ -140,8 +140,8 @@ const ProductListing = () => {
           <div className="flex-1">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {products.map((product) => (
-                <div key={product.id} className="bg-white rounded-lg p-4 flex flex-col">
-                  <div className="bg-gray-100 rounded-lg mb-3 p-4 flex justify-center">
+                <div key={product.id} className="border border-gray-300 rounded-lg p-4 flex flex-col">
+                  <div className="bg-blue-50 rounded-lg mb-3 p-4 flex justify-center">
                     <img 
                       src={product.image} 
                       alt={product.name}

@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import './App.css';
-import NavbarComponent from './components/navbar/NavbarComponent';
-import ShoppingCart from './page/shoppingcart/ShoppingCart';
-import FooterComponent from './components/footer/FooterComponent';
-import Home from './page/homepage/Home';
+// import NavbarComponent from './components/navbar/NavbarComponent';
+// import ShoppingCart from './page/shoppingcart/ShoppingCart';
+// import FooterComponent from './components/footer/FooterComponent';
+// import Home from './page/homepage/Home';
 
 
 function App() {

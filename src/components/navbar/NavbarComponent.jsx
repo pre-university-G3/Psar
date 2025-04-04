@@ -77,7 +77,7 @@ function NavbarComponent() {
             <div className="flex items-center space-x-6">
               <a
                 href="#"
-                className="text-white hover:text-red-500 dark:hover:text-red-400 transition-colors"
+                className="text-white hover:text-red-600 dark:hover:text-red-600 transition-colors"
               >
                 All Product
               </a>
@@ -86,7 +86,7 @@ function NavbarComponent() {
                   <div className="relative">
                     <button
                       onClick={() => setIsCategoriesOpen(!isCategoriesOpen)}
-                      className="flex items-center text-white hover:text-red-500 dark:hover:text-red-400 transition-colors"
+                      className="flex items-center text-white hover:text-red-600 dark:hover:text-red-600 transition-colors"
                     >
                       Categories
                       <svg
@@ -129,7 +129,7 @@ function NavbarComponent() {
                   </div>
                   <a
                     href="#"
-                    className="text-white hover:text-red-500 dark:hover:text-red-400 transition-colors"
+                    className="text-white hover:text-red-600 dark:hover:text-red-600 transition-colors"
                   >
                     About us
                   </a>
@@ -160,7 +160,7 @@ function NavbarComponent() {
               <div className="flex items-center space-x-2">
                 <a
                   href="#"
-                  className="text-white hover:text-red-500 dark:hover:text-red-400 px-3 py-1.5 transition-colors"
+                  className="text-white hover:text-red-600 dark:hover:text-red-600 px-3 py-1.5 transition-colors"
                 >
                   Sign up
                 </a>
@@ -197,7 +197,7 @@ function NavbarComponent() {
                 <a
                   key={item}
                   href="#"
-                  className="text-white py-2 hover:text-red-500 dark:hover:text-red-400 transition-colors"
+                  className="text-white py-2 hover:text-red-600 dark:hover:text-red-600 transition-colors"
                 >
                   {item}
                 </a>
@@ -206,7 +206,7 @@ function NavbarComponent() {
               <div className="pt-2 border-t border-gray-700 dark:border-gray-600">
                 <button
                   onClick={() => setIsCategoriesOpen(!isCategoriesOpen)}
-                  className="flex items-center justify-between w-full text-white py-2 hover:text-red-500 dark:hover:text-red-400 transition-colors"
+                  className="flex items-center justify-between w-full text-white py-2 hover:text-red-600 dark:hover:text-red-600 transition-colors"
                 >
                   Categories
                   <svg
@@ -251,7 +251,7 @@ function NavbarComponent() {
               <div className="pt-2 border-t border-gray-700 dark:border-gray-600">
                 <a
                   href="#"
-                  className="block text-white py-2 hover:text-red-500 dark:hover:text-red-400 transition-colors"
+                  className="block text-white py-2 hover:text-red-600 dark:hover:text-red-600 transition-colors"
                 >
                   Sign up
                 </a>
