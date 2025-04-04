@@ -1,4 +1,6 @@
 // import { createBrowserRouter, RouterProvider } from 'react-router';
+import { useEffect } from 'react';
+import getAllProduct from './api/getAllProducts';
 import './App.css';
 import Home from './page/homepage/Home';
 
@@ -17,11 +19,13 @@ function App() {
     
      
   // ]);
-
+  
   return (
+   
+
     // <RouterProvider router={router} />
     <div>
-      
+        
     </div>
   );
 }

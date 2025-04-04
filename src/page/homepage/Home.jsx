@@ -1,20 +1,23 @@
-import React from 'react';
+import ProductCart from "../../components/cart/ProductCart";
+
 
 const HomePage = () => {
+
+
   // Product data
-  const createProductItem = (id, name = "EX DISPLAY: MSI Pro 16", price = 499.00, freeDelivery = true, warranty = "1 Year Warranty") => ({
-    id,
-    name,
-    price,
-    freeDelivery,
-    warranty,
-    image: "/product-image.jpg" // Replace with actual image path
-  });
+  // const createProductItem = (id, name = "EX DISPLAY: MSI Pro 16", price = 499.00, freeDelivery = true, warranty = "1 Year Warranty") => ({
+  //   id,
+  //   name,
+  //   price,
+  //   freeDelivery,
+  //   warranty,
+  //   image: "/product-image.jpg" // Replace with actual image path
+  // });
 
   // Create product arrays
-  const newProducts = Array(5).fill().map((_, index) => createProductItem(index + 1));
-  const newArrivalProducts = Array(10).fill().map((_, index) => createProductItem(index + 11));
-  const bestSellingProducts = Array(10).fill().map((_, index) => createProductItem(index + 21));
+  // const newProducts = Array(5).fill().map((_, index) => createProductItem(index + 1));
+  // const newArrivalProducts = Array(10).fill().map((_, index) => createProductItem(index + 11));
+  // const bestSellingProducts = Array(10).fill().map((_, index) => createProductItem(index + 21));
 
   // Brand banner data
   const brandBanners = [
@@ -26,7 +29,7 @@ const HomePage = () => {
       textColor: "text-white",
       accentColor: "bg-red-600",
       buttonText: "Shop Now",
-      image: "/lenovo-laptop.jpg" // Replace with actual image
+      image: "https://s3.ap-southeast-1.amazonaws.com/uploads-store/uploads/all/5KgavhN0leBERGrv0Hjdf01NcpIDs2fjyzfThnD9.png" // Replace with actual image
     },
     {
       id: 2,
@@ -36,7 +39,7 @@ const HomePage = () => {
       textColor: "text-white",
       accentColor: "bg-red-600",
       buttonText: "Shop Now",
-      image: "/rog-monitor.jpg" // Replace with actual image
+      image: "https://dlcdnwebimgs.asus.com/files/media/B6E6970A-9728-4F44-A81E-4175939B8925/v1/img/display/strix-g-2022.png" // Replace with actual image
     },
     {
       id: 3,
@@ -46,33 +49,33 @@ const HomePage = () => {
       textColor: "text-white",
       accentColor: "bg-red-600",
       buttonText: "Shop Now",
-      image: "/msi-desktop.jpg" // Replace with actual image
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0GMmD6EjbI0NI1SIenr5qvLiWQDaK5gHpcA&s" // Replace with actual image
     }
   ];
 
   // Product card component
-  const ProductCard = ({ product }) => (
-    <div className="bg-white rounded-lg p-4 flex flex-col">
-      <div className="bg-gray-100 rounded-lg mb-3 p-4 flex justify-center">
-        <img 
-          src={product.image} 
-          alt={product.name}
-          className="h-32 object-contain"
-        />
-      </div>
-      <h3 className="font-semibold mb-1 text-sm">{product.name}</h3>
-      <div className="flex items-center text-xs text-red-500 mb-2">
-        <span className="mr-2">{product.warranty}</span>
-        <span>{product.freeDelivery ? 'Free delivery' : ''}</span>
-      </div>
-      <div className="mt-auto">
-        <div className="font-bold text-lg mb-2">${product.price.toFixed(2)}</div>
-        <button className="w-full bg-purple-600 text-white py-1 text-xs rounded-md hover:bg-purple-700">
-          ADD TO CART
-        </button>
-      </div>
-    </div>
-  );
+  // const ProductCard = ({ product }) => (
+  //   <div className="bg-white rounded-lg p-4 flex flex-col">
+  //     <div className="bg-gray-100 rounded-lg mb-3 p-4 flex justify-center">
+  //       <img 
+  //         src={product.image} 
+  //         alt={product.name}
+  //         className="h-32 object-contain"
+  //       />
+  //     </div>
+  //     <h3 className="font-semibold mb-1 text-sm">{product.name}</h3>
+  //     <div className="flex items-center text-xs text-red-500 mb-2">
+  //       <span className="mr-2">{product.warranty}</span>
+  //       <span>{product.freeDelivery ? 'Free delivery' : ''}</span>
+  //     </div>
+  //     <div className="mt-auto">
+  //       <div className="font-bold text-lg mb-2">${product.price.toFixed(2)}</div>
+  //       <button className="w-full bg-purple-600 text-white py-1 text-xs rounded-md hover:bg-purple-700">
+  //         ADD TO CART
+  //       </button>
+  //     </div>
+  //   </div>
+  // );
 
   // Brand banner component
   const BrandBanner = ({ banner }) => (
@@ -97,7 +100,7 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-pink-50">
       {/* Hero Section */}
-      <div className="container mx-auto max-w-6xl px-4 py-8">
+      <div className="container mx-auto max-w-6xl px-4 py-8 mt-8">
         <div className="bg-white rounded-lg p-8 flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-6 md:mb-0 md:pr-8">
             <h1 className="text-3xl font-bold mb-2">
@@ -114,7 +117,7 @@ const HomePage = () => {
           </div>
           <div className="md:w-1/2">
             <img 
-              src="/hero-laptop.png" 
+              src="https://jarrods.tech/wp-content/uploads/2023/12/asus-rog-zephyrus-m16-2023-gaming-laptop-1024x576.jpg" 
               alt="ROG Gaming Laptop" 
               className="w-full"
             />
@@ -125,28 +128,21 @@ const HomePage = () => {
       {/* New Products Section */}
       <div className="container mx-auto max-w-6xl px-4 py-8">
         <h2 className="text-2xl font-bold mb-6">New Products</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {newProducts.map(product => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+        <div className=" gap-4">
+        <ProductCart/>
         </div>
       </div>
 
       {/* New Arrival Products Section */}
-      <div className="container mx-auto max-w-6xl px-4 py-8">
+      {/* <div className="container mx-auto max-w-6xl px-4 py-8">
         <h2 className="text-2xl font-bold mb-6">New Arrival Products</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {newArrivalProducts.slice(0, 5).map(product => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+        <div className=" gap-4">
+        <ProductCart/>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-4">
-          {newArrivalProducts.slice(5, 10).map(product => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+         <ProductCart/>
         </div>
-      </div>
-
+      </div> */}
       {/* Brand Banners */}
       <div className="container mx-auto max-w-6xl px-4 py-8">
         <h2 className="text-2xl font-bold mb-6">New Arrival Products</h2>
@@ -155,25 +151,13 @@ const HomePage = () => {
             <BrandBanner key={banner.id} banner={banner} />
           ))}
         </div>
-        <div className="mt-4">
+        {/* <div className="mt-4 h-[300px] ">
           <BrandBanner banner={brandBanners[2]} />
-        </div>
+        </div> */}
       </div>
 
       {/* Best Selling Products */}
-      <div className="container mx-auto max-w-6xl px-4 py-8">
-        <h2 className="text-2xl font-bold mb-6">Best Selling</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {bestSellingProducts.slice(0, 5).map(product => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-4">
-          {bestSellingProducts.slice(5, 10).map(product => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      </div>
+     
     </div>
   );
 };

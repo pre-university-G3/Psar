@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { FaMoon, FaSun, FaBars, FaTimes } from "react-icons/fa";
 // Make sure this path is correct - adjust according to your project structure
 import logo from "../../../public/logo/logo.png";
+import { Link, NavLink } from "react-router";
  function NavbarComponent() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
@@ -52,7 +53,6 @@ import logo from "../../../public/logo/logo.png";
   const isMobile = windowWidth < 768;
   // const isTablet = windowWidth >= 768 && windowWidth < 1024;
   const isLaptop = windowWidth >= 1024;
-
   return (
     <header className={`fixed top-0 w-full z-50 ${isScrolled ? "bg-neutral-800 shadow-lg" : "bg-neutral-800"}`}>
       <nav className="container mx-auto px-4 py-3">
@@ -65,7 +65,9 @@ import logo from "../../../public/logo/logo.png";
           {/* Desktop Navigation */}
           {!isMobile && (
             <div className="flex items-center space-x-6">
+              <Link to ="/product-listing">
               <a href="#" className="text-white hover:text-red-500">All Product</a>
+              </Link>
               {isLaptop && (
                 <>
               <div className="relative">
@@ -107,11 +109,12 @@ import logo from "../../../public/logo/logo.png";
             >
               {darkMode ? <FaSun className="w-5 h-5" /> : <FaMoon className="w-5 h-5" />}
             </button>
-
             {/* Auth Buttons */}
             {!isMobile && (
               <div className="flex items-center space-x-2">
-                <a href="#" className="text-white hover:text-red-500 px-3 py-1.5">Sign up</a>
+               <NavLink className="block text-white py-2 " to="/sign-in">
+              Sign up
+               </NavLink>
                 <a href="#" className="bg-indigo-600 text-white px-4 py-1.5 rounded-md hover:bg-indigo-700">Login</a>
               </div>
             )}
@@ -162,7 +165,9 @@ import logo from "../../../public/logo/logo.png";
               </div>
               
               <div className="pt-2 border-t border-gray-700">
-                <a href="#" className="block text-white py-2">Sign up</a>
+               <NavLink to="/sign-in" >
+               <a className="block text-white py-2 ">Sign up</a>
+               </NavLink>
                 <a href="#" className="block text-center bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700">Login</a>
               </div>
             </div>

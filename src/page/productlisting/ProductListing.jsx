@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import getAllProduct from '../../api/getAllProducts';
+import ProductCart from '../../components/cart/ProductCart';
+import { Link } from 'react-router';
 
 const ProductListing = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -28,14 +31,14 @@ const ProductListing = () => {
     'Huawei'
   ];
 
-  const products = Array(18).fill().map((_, index) => ({
-    id: index + 1,
-    name: `EX DISPLAY: MSI Pro 16`,
-    price: 499.00,
-    freeDelivery: true,
-    warranty: "1 Year Warranty",
-    image: "/product-image.jpg" // Replace with actual image path
-  }));
+  // const products = Array(18).fill().map((_, index) => ({
+  //   id: index + 1,
+  //   name: `EX DISPLAY: MSI Pro 16`,
+  //   price: 499.00,
+  //   freeDelivery: true,
+  //   warranty: "1 Year Warranty",
+  //   image: "/product-image.jpg" // Replace with actual image path
+  // }));
 
   const toggleCategory = (category) => {
     setSelectedCategories(prev => 
@@ -56,7 +59,11 @@ const ProductListing = () => {
   const toggleDiscount = () => {
     setDiscountFilter(prev => !prev);
   };
-
+  useEffect(() => {
+    getAllProduct().then(data => {
+      console.log("fo", data);
+    });
+  }, []);
   return (
     <div className="pt-16 min-h-screen bg-pink-50">
       {/* Header Banner */}
@@ -138,29 +145,10 @@ const ProductListing = () => {
 
           {/* Product Grid */}
           <div className="flex-1">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {products.map((product) => (
-                <div key={product.id} className="bg-white rounded-lg p-4 flex flex-col">
-                  <div className="bg-gray-100 rounded-lg mb-3 p-4 flex justify-center">
-                    <img 
-                      src={product.image} 
-                      alt={product.name}
-                      className="h-32 object-contain"
-                    />
-                  </div>
-                  <h3 className="font-semibold mb-1">{product.name}</h3>
-                  <div className="flex items-center text-sm text-red-500 mb-2">
-                    <span className="mr-2">{product.warranty}</span>
-                    <span>{product.freeDelivery ? 'Free delivery' : ''}</span>
-                  </div>
-                  <div className="mt-auto">
-                    <div className="font-bold text-lg mb-2">${product.price.toFixed(2)}</div>
-                    <button className="w-full bg-purple-600 text-white py-2 rounded-md text-sm hover:bg-purple-700">
-                      ADD TO CART
-                    </button>
-                  </div>
-                </div>
-              ))}
+            <div className="">
+          
+             <ProductCart/>
+             
             </div>
           </div>
         </div>

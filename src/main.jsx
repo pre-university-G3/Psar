@@ -9,6 +9,7 @@ import Home from "./page/homepage/Home.jsx";
 import ShoppingCart from "./page/shoppingcart/ShoppingCart.jsx";
 import ProductListing from "./page/productlisting/ProductListing.jsx";
 import ProductDetail from "./page/productdetail/ProductDetail.jsx";
+import SignIn from "./page/signin/SignIn.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -19,8 +20,10 @@ createRoot(document.getElementById("root")).render(
         <Route path="/aboutus" element={<Aboutus/>} />
         <Route path="/shopping-cart" element={<ShoppingCart/>}/>
         <Route path="/product-listing" element={<ProductListing/>}/>
-        <Route path="/product-detail" element={<ProductDetail/>}/>
+        <Route path="/product-detail/:id" element={<ProductDetail/>}/>
       </Route>
+      <Route path="/sign-in" element={<SignIn/>}/>
+
     </Routes>
   </BrowserRouter>
   </StrictMode>
