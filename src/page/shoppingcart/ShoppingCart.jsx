@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { FaBars, FaTimes, FaMoon, FaSun } from "react-icons/fa"; // Added FaMoon and FaSun
+// import { FaBars, FaTimes, FaMoon, FaSun } from "react-icons/fa"; // Added FaMoon and FaSun
 
 const ShoppingCart = () => {
   const [cartItems, setCartItems] = useState([
     {
       id: 1,
-      name: "MacBook Air M1 Color & Price: 256G|8G=$1,059 Offer $699 Falcon Add $20 Apple M1 Chip 8-Core CPU & 7-Core GPU 8GB LPDDR4X",
+      name: "MacBook Air M1 Color & Price: 256G|8G=$1,059",
       image:
         "https://macfinder.co.uk/wp-content/uploads/2023/08/macbookair-15-sonoma.png",
       price: 1289.0,
@@ -13,7 +13,7 @@ const ShoppingCart = () => {
     },
     {
       id: 2,
-      name: "Featuring an AMD® Dragon Range R9 Processer, an NVIDIA GeForce RTX™ 4070 Laptop GPU with NVIDIA Advanced Optimus, and the stunning QHD 240hz display",
+      name: "Featuring an AMD® Dragon Range R9 Processer, an NVIDIA GeForce RTX™ 4070 Laptop GPU with NVIDIA Advanced Optimus",
       image:
         "https://dlcdnwebimgs.asus.com/gain/30B02883-1847-4CA8-80AC-393A69BB7CD2/w250",
       price: 2199.0,
