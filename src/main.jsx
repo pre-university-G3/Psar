@@ -11,6 +11,7 @@ import ProductListing from "./page/productlisting/ProductListing.jsx";
 import ProductDetail from "./page/productdetail/ProductDetail.jsx";
 import PrivacyPolicy from "./page/privacypolicy/PrivacyPolicy.jsx";
 import SignIn from "./page/signin/SignIn.jsx";
+import CreateAccount from "./page/createaccount/CreateAccount.jsx";
 
 
 createRoot(document.getElementById("root")).render(
@@ -25,6 +26,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/product-detail" element={<ProductDetail/>}/>
         <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
         <Route path="/sign-in" element={<SignIn/>}/>
+        <Route path="/create-account" element={<CreateAccount/>}/>
       </Route>
     </Routes>
   </BrowserRouter>

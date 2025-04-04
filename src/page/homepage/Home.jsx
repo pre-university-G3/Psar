@@ -98,7 +98,7 @@ const HomePage = () => {
     <div className="min-h-screen ">
       {/* Hero Section */}
       <div className="container mx-auto  max-w-6xl px-4 py-5">
-        <div className=" rounded-lg  mt-25 p-8 flex flex-col md:flex-row items-center">
+        <div className=" rounded-lg shadow-2xl mt-25 p-8 flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-6 md:mb-0 md:pr-8 ">
             <h1 className="text-3xl font-bold mb-2">
               Power meets speed. 
