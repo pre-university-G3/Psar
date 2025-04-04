@@ -1,18 +1,28 @@
-// import { createBrowserRouter, RouterProvider } from "react-router";
-import "./App.css";
-// import RootLayout from "./components/layout/RootLayout";
-import NavbarComponent from "./components/button/navbar/NavbarComponent";
-import FooterComponent from "./components/footer/FooterComponent";
-import ShoppingCart from "./page/shoppingcart/ShoppingCart";
+// import { createBrowserRouter, RouterProvider } from 'react-router';
+import './App.css';
+import Home from './page/homepage/Home';
+
+
 
 function App() {
- 
+  // const router = createBrowserRouter([
+  //   {
+  //     path: "/",
+  //     element: <Home />,
+  //   },
+  //   {
+  //     path: "/about",
+  //     element: <h2>About Us</h2>,
+  //   },
+    
+     
+  // ]);
+
   return (
-    <>
-    <NavbarComponent/>
-    <ShoppingCart/>
-    <FooterComponent/>
-    </>
+    // <RouterProvider router={router} />
+    <div>
+      
+    </div>
   );
 }
 
