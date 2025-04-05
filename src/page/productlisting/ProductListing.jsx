@@ -11,8 +11,9 @@ const ProductListing = () => {
   useEffect(() => {
     getAllProduct()
       .then((data) => {
-        console.log("Fetched Products:", data);
-        setProducts(data); // Save to state
+        const fetchedProducts = data.content;
+        console.log("Product in cart ", fetchedProducts);
+        setProducts(fetchedProducts);
       })
       .catch((err) => {
         console.error("Error fetching products:", err);
@@ -94,7 +95,6 @@ const ProductListing = () => {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto max-w-6xl px-4">
         <div className="flex flex-col md:flex-row gap-6">
           {/* Sidebar Filters */}
@@ -117,7 +117,6 @@ const ProductListing = () => {
                 ))}
               </div>
             </div>
-
             {/* Brands */}
             <div>
               <h3 className="text-xl font-bold mb-3">Product Brands</h3>
@@ -136,7 +135,6 @@ const ProductListing = () => {
                 ))}
               </div>
             </div>
-
             {/* Discount */}
             <div>
               <h3 className="text-xl font-bold mb-3">Discount Process</h3>
@@ -155,33 +153,37 @@ const ProductListing = () => {
 
           {/* Product Grid */}
           <div className="flex-1">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {products?.content.map((product) => (
-                <div
-                  key={product.id}
-                  className="border border-gray-300 rounded-lg p-4 flex flex-col"
-                >
-                  <div className="bg-blue-50 rounded-lg mb-3 p-4 flex justify-center">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="h-32 object-contain"
-                    />
-                  </div>
-                  <h3 className="font-semibold mb-1">{product.name}</h3>
-                  <div className="flex items-center text-sm text-red-500 mb-2">
-                    <span className="mr-2">{product.warranty}</span>
-                    <span>{product.freeDelivery ? "Free delivery" : ""}</span>
-                  </div>
-                  <div className="mt-auto">
-                    <div className="font-bold text-lg mb-2">
-                      ${product.price.toFixed(2)}
+            <div className="grid grid-cols-2 md:grid-cols-3  gap-4">
+              {products.map((product) => (
+                <Link to={`/product-detail/${product.uuid}`}>
+                  <div
+                    key={product.id}
+                    className="border border-gray-300 rounded-lg p-4 flex flex-col">
+                    <div className="bg-blue-50 rounded-lg mb-3 p-4 flex justify-center">
+                      <img
+                        src={
+                          product.color[0].images[0] ||
+                          "https://atdc.org/wp-content/themes/u-design/assets/images/placeholders/post-placeholder.jpg"
+                        }
+                        alt={product.name}
+                        className="h-32 object-contain"
+                      />
                     </div>
-                    <button className="w-full bg-purple-600 text-white py-2 rounded-md text-sm hover:bg-purple-700">
-                      ADD TO CART
-                    </button>
+                    <h3 className="font-semibold mb-1">{product.name}</h3>
+                    <div className="flex items-center text-sm text-red-500 mb-2">
+                      <span className="mr-2">{product.warranty}</span>
+                      <span>{product.freeDelivery ? "Free delivery" : ""}</span>
+                    </div>
+                    <div className="mt-auto">
+                      <div className="font-bold text-lg mb-2">
+                        ${product.priceOut}
+                      </div>
+                      <button className="w-full bg-purple-600 text-white py-2 rounded-md text-sm hover:bg-purple-700">
+                        ADD TO CART
+                      </button>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
