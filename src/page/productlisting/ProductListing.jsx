@@ -65,18 +65,18 @@ const ProductListing = () => {
     });
   }, []);
   return (
-    <div className="pt-16 min-h-screen bg-pink-50">
+    <div className="pt-16 min-h-screen ">
       {/* Header Banner */}
-      <div className="bg-pink-100 p-4 mb-6">
-        <div className="container mx-auto max-w-6xl">
-          <div className="relative py-8 px-6 rounded-lg bg-white/70 backdrop-blur-sm">
-            <h1 className="text-2xl font-bold">
+      <div className=" p-4 mb-6">
+        <div className="container  mx-auto max-w-6xl">
+          <div className="relative py-8 px-6 rounded-lg bg-blue-50 backdrop-blur-sm">
+            <h1 className="text-2xl text-black font-bold">
               You're choose the <span className="text-purple-500">Right</span> place to buy your favorite thing!
             </h1>
-            <h2 className="text-4xl font-bold text-gray-300">Apple iMac</h2>
+            <h2 className="text-4xl font-bold text-black">Apple iMac</h2>
             <div className="absolute right-8 top-1/2 -translate-y-1/2">
               <img 
-                src="/imac-lineup.png" 
+                src="https://dlcdnwebimgs.asus.com/gain/30B02883-1847-4CA8-80AC-393A69BB7CD2/w250" 
                 alt="Apple iMac Lineup" 
                 className="h-24"
               />
@@ -145,10 +145,29 @@ const ProductListing = () => {
 
           {/* Product Grid */}
           <div className="flex-1">
-            <div className="">
-          
-             <ProductCart/>
-             
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {products.map((product) => (
+                <div key={product.id} className="border border-gray-300 rounded-lg p-4 flex flex-col">
+                  <div className="bg-blue-50 rounded-lg mb-3 p-4 flex justify-center">
+                    <img 
+                      src={product.image} 
+                      alt={product.name}
+                      className="h-32 object-contain"
+                    />
+                  </div>
+                  <h3 className="font-semibold mb-1">{product.name}</h3>
+                  <div className="flex items-center text-sm text-red-500 mb-2">
+                    <span className="mr-2">{product.warranty}</span>
+                    <span>{product.freeDelivery ? 'Free delivery' : ''}</span>
+                  </div>
+                  <div className="mt-auto">
+                    <div className="font-bold text-lg mb-2">${product.price.toFixed(2)}</div>
+                    <button className="w-full bg-purple-600 text-white py-2 rounded-md text-sm hover:bg-purple-700">
+                      ADD TO CART
+                    </button>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

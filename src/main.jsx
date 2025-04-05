@@ -9,7 +9,10 @@ import Home from "./page/home/Home.jsx";
 import ShoppingCart from "./page/shoppingcart/ShoppingCart.jsx";
 import ProductListing from "./page/productlisting/ProductListing.jsx";
 import ProductDetail from "./page/productdetail/ProductDetail.jsx";
+import PrivacyPolicy from "./page/privacypolicy/PrivacyPolicy.jsx";
 import SignIn from "./page/signin/SignIn.jsx";
+import CreateAccount from "./page/createaccount/CreateAccount.jsx";
+
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -21,6 +24,9 @@ createRoot(document.getElementById("root")).render(
         <Route path="/shopping-cart" element={<ShoppingCart/>}/>
         <Route path="/product-listing" element={<ProductListing/>}/>
         <Route path="/product-detail/:id" element={<ProductDetail/>}/>
+        <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
+        <Route path="/sign-in" element={<SignIn/>}/>
+        <Route path="/create-account" element={<CreateAccount/>}/>
       </Route>
       <Route path="/sign-in" element={<SignIn/>}/>
 
@@ -28,6 +34,5 @@ createRoot(document.getElementById("root")).render(
   </BrowserRouter>
       <App />
   </StrictMode>
-
 );
 
