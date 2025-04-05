@@ -92,7 +92,7 @@ import { Link, NavLink } from "react-router";
                   </div>
                 )}
               </div>
-                  <a href="#" className="text-white hover:text-red-500">About us</a>
+                  <NavLink to="/aboutus" className="text-white hover:text-red-500">About us</NavLink>
                 </>
               )}
               

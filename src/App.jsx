@@ -1,8 +1,9 @@
 // import { createBrowserRouter, RouterProvider } from 'react-router';
-import { useEffect } from 'react';
-import getAllProduct from './api/getAllProducts';
+// import { useEffect } from 'react';
+// import getAllProduct from './api/getAllProducts';
 import './App.css';
-import Home from './page/homepage/Home';
+// import Home from './page/homepage/Home';
+// import Aboutus from './page/aboutus/Aboutus';
 
 
 
@@ -25,7 +26,6 @@ function App() {
 
     // <RouterProvider router={router} />
     <div>
-        
     </div>
   );
 }
