@@ -24,12 +24,10 @@ createRoot(document.getElementById("root")).render(
         <Route path="/shopping-cart" element={<ShoppingCart/>}/>
         <Route path="/product-listing" element={<ProductListing/>}/>
         <Route path="/product-detail/:id" element={<ProductDetail/>}/>
-        <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
-        <Route path="/sign-in" element={<SignIn/>}/>
         <Route path="/create-account" element={<CreateAccount/>}/>
+        <Route path="/privacy" element={<PrivacyPolicy/>}/>
       </Route>
       <Route path="/sign-in" element={<SignIn/>}/>
-
     </Routes>
   </BrowserRouter>
       <App />
