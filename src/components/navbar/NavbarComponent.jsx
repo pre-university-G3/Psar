@@ -54,31 +54,27 @@ function NavbarComponent() {
   const isMobile = windowWidth < 768;
   // const isTablet = windowWidth >= 768 && windowWidth < 1024;
   const isLaptop = windowWidth >= 1024;
-  
+
   return (
     <header
       className={`fixed top-[0] w-full z-50 transition-colors duration-300 ${
-        isScrolled
-          ? "bg-neutral-800 shadow-lg "
-          : "bg-neutral-800 "
+        isScrolled ? "bg-neutral-800 shadow-lg " : "bg-neutral-800 "
       }`}
     >
       <nav className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <a href="#" className="flex items-center">
-            <img
-              src={logo}
-              alt="logo"
-              className="h-10"
-            />
-          </a>
+          <NavLink to="/" className="flex items-center">
+            <img src={logo} alt="logo" className="h-10" />
+          </NavLink>
 
           {/* Desktop Navigation */}
           {!isMobile && (
             <div className="flex items-center space-x-6">
               <Link to="/product-listing">
-                <span className="text-white hover:text-red-500">All Product</span>
+                <span className="text-white hover:text-red-500">
+                  All Product
+                </span>
               </Link>
               {isLaptop && (
                 <>
@@ -126,7 +122,10 @@ function NavbarComponent() {
                       </div>
                     )}
                   </div>
-                  <NavLink to="/aboutus" className="text-white hover:text-red-500">
+                  <NavLink
+                    to="/aboutus"
+                    className="text-white hover:text-red-500"
+                  >
                     About us
                   </NavLink>
                 </>
@@ -150,14 +149,19 @@ function NavbarComponent() {
                 <FaMoon className="w-5 h-5" />
               )}
             </button>
-            
+
             {/* Auth Buttons */}
             {!isMobile && (
               <div className="flex items-center space-x-2">
-                <NavLink className="block text-white py-2" to="/sign-in">
+                <NavLink className="block text-white py-2" to="/sign-up">
                   Sign up
                 </NavLink>
-                <a href="#" className="bg-indigo-600 text-white px-4 py-1.5 rounded-md hover:bg-indigo-700">Login</a>
+                <NavLink
+                  to="/sign-in"
+                  className="bg-indigo-600 text-white px-4 py-1.5 rounded-md hover:bg-indigo-700"
+                >
+                  Login
+                </NavLink>
               </div>
             )}
 
@@ -235,12 +239,17 @@ function NavbarComponent() {
                   </div>
                 )}
               </div>
-              
+
               <div className="pt-2 border-t border-gray-700">
                 <NavLink to="/sign-in">
                   <span className="block text-white py-2">Sign up</span>
                 </NavLink>
-                <a href="#" className="block text-center bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700">Login</a>
+                <a
+                  href="#"
+                  className="block text-center bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700"
+                >
+                  Login
+                </a>
               </div>
             </div>
           </div>

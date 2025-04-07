@@ -1,24 +1,25 @@
 import { useState } from "react";
+import { NavLink } from "react-router";
 // import { FaBars, FaTimes, FaMoon, FaSun } from "react-icons/fa"; // Added FaMoon and FaSun
 
 const ShoppingCart = () => {
   const [cartItems, setCartItems] = useState([
     {
       id: 1,
-      name: "MacBook Air M1 Color & Price: 256G|8G=$1,059",
+      name: "MacBook Pro M1 14-inch (2025)",
       image:
-        "https://macfinder.co.uk/wp-content/uploads/2023/08/macbookair-15-sonoma.png",
-      price: 1289.0,
+        "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spaceblack-gallery1-202410?wid=4000&hei=3074&fmt=jpeg&qlt=90&.v=1729264981617",
+      price: 1999.99,
       quantity: 1,
     },
-    {
-      id: 2,
-      name: "Featuring an AMD® Dragon Range R9 Processer, an NVIDIA GeForce RTX™ 4070 Laptop GPU with NVIDIA Advanced Optimus",
-      image:
-        "https://dlcdnwebimgs.asus.com/gain/30B02883-1847-4CA8-80AC-393A69BB7CD2/w250",
-      price: 2199.0,
-      quantity: 2,
-    },
+    // {
+    //   id: 2,
+    //   name: "Featuring an AMD® Dragon Range R9 Processer, an NVIDIA GeForce RTX™ 4070 Laptop GPU with NVIDIA Advanced Optimus",
+    //   image:
+    //     "https://www.mistore-greece.gr/getmetafile/fe5f50f0-c943-4c24-acae-dc239e7e893c/14t-pro-black.aspx",
+    //   price: 2199.0,
+    //   quantity: 2,
+    // },
   ]);
 
   const formatPrice = (price) => {
@@ -232,8 +233,8 @@ const ShoppingCart = () => {
         </section>
 
         {/* Cart Summary Section */}
-        <aside className="lg:w-1/3 mt-6 lg:mt-0">
-          <div className=" rounded-lg p-6 shadow-sm">
+        <aside className="lg:w-1/3 w-full mt-6 lg:mt-0 ">
+          <div className="flex gap-4 flex-col rounded-lg p-6 shadow-sm">
             <h2 className="text-xl font-medium text-red-600 mb-4">Summary</h2>
             <div className="space-y-3">
               <div className="flex justify-between items-center pb-3 border-b border-gray-100">
@@ -257,9 +258,12 @@ const ShoppingCart = () => {
                 </span>
               </div>
             </div>
-            <button className="w-full mt-6 px-6 py-4 bg-blue-600 rounded-full text-white font-semibold hover:bg-blue-700 transition">
+            <NavLink
+              to="/payment"
+              className="w-full mt-4 px-6 py-4 bg-blue-600 rounded-full text-white text-center font-semibold hover:bg-blue-700 transition"
+            >
               Proceed to checkout
-            </button>
+            </NavLink>
           </div>
         </aside>
       </div>

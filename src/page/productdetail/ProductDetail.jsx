@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
+import { NavLink, useParams } from 'react-router';
 import getProductByuuid from '../../api/getProductByuuid';
 
 export default function ProductDetail() {
@@ -47,9 +47,9 @@ export default function ProductDetail() {
             <button className="w-1/3 py-3 bg-white border-2 border-black font-medium">
               ${product.priceOut.toFixed(2)}
             </button>
-            <button className="w-2/3 py-3 bg-black text-white font-medium">
+            <NavLink  to ="/shopping-cart" className="w-2/3 py-3 text-center bg-black text-white font-medium">
               Add to cart
-            </button>
+            </NavLink>
           </div>
         </section>
       </article>
