@@ -26,7 +26,7 @@ const ProductListing = () => {
     "TV",
     "Desktop",
     "iPad / Tablet",
-    "Smart Phone",
+    "Phone",
     "Smart Watch",
   ];
 
@@ -80,12 +80,12 @@ const ProductListing = () => {
     return products.filter((product) => {
       // Filter by category
       const categoryMatch = selectedCategories.length
-        ? selectedCategories.includes(product.category)
+        ? selectedCategories.includes(product.category.name)
         : true;
 
       // Filter by brand
       const brandMatch = selectedBrands.length
-        ? selectedBrands.includes(product.brand)
+        ? selectedBrands.includes(product.brand.name)
         : true;
 
       // Filter by discount (if enabled)
@@ -96,7 +96,7 @@ const ProductListing = () => {
       return categoryMatch && brandMatch && discountMatch;
     });
   }, [products, selectedCategories, selectedBrands, discountFilter]);
-  
+
   return (
     <div className="pt-16 min-h-screen ">
       {/* Header Banner */}
@@ -177,7 +177,7 @@ const ProductListing = () => {
           {/* Product Grid */}
           <div className="flex-1">
             <div className="grid grid-cols-2 md:grid-cols-3  gap-4">
-              {products.map((product) => (
+              {filteredProducts.map((product) => (
                 <Link to={`/product-detail/${product.uuid}`}>
                   <div
                     key={product.id}
