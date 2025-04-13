@@ -1,4 +1,4 @@
-import React, { useEffect, useState , useMemo } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import getAllProduct from "../../api/getAllProducts";
 import ProductCart from "../../components/cart/ProductCart";
 import { Link } from "react-router";
@@ -75,7 +75,7 @@ const ProductListing = () => {
     });
   }, []);
 
-  // Step 2: Filter products based on selected criteria
+  // Filter products based on selected criteria
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
       // Filter by category
@@ -181,15 +181,17 @@ const ProductListing = () => {
                 <Link to={`/product-detail/${product.uuid}`}>
                   <div
                     key={product.id}
-                    className="border border-gray-300 rounded-lg p-4 flex flex-col">
+                    className="border border-gray-300 rounded-lg p-4 flex flex-col"
+                  >
                     <div className="bg-blue-50 rounded-lg mb-3 p-4 flex justify-center">
                       <img
                         src={
-                          product.color[0].images[0] ||
+                          product?.color?.[0]?.images?.[0] ||
                           "https://atdc.org/wp-content/themes/u-design/assets/images/placeholders/post-placeholder.jpg"
                         }
-                        alt={product.name}
+                        alt={product.name || "Product Image"}
                         className="h-32 object-contain"
+                        loading="lazy" 
                       />
                     </div>
                     <h3 className="font-semibold mb-1">{product.name}</h3>
