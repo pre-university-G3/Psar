@@ -31,8 +31,8 @@ const ProductListing = () => {
   ];
 
   const brands = [
-    "Apple",
-    "ASUS",
+    "Apple Inc.",
+    "Asus",
     "Lenovo",
     "HP",
     "Dell",
