@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState , useMemo } from "react";
 import getAllProduct from "../../api/getAllProducts";
 import ProductCart from "../../components/cart/ProductCart";
 import { Link } from "react-router";
@@ -74,6 +74,29 @@ const ProductListing = () => {
       console.log("fo", data);
     });
   }, []);
+
+  // Step 2: Filter products based on selected criteria
+  const filteredProducts = useMemo(() => {
+    return products.filter((product) => {
+      // Filter by category
+      const categoryMatch = selectedCategories.length
+        ? selectedCategories.includes(product.category)
+        : true;
+
+      // Filter by brand
+      const brandMatch = selectedBrands.length
+        ? selectedBrands.includes(product.brand)
+        : true;
+
+      // Filter by discount (if enabled)
+      const discountMatch = discountFilter
+        ? product.discount > 0 // Adjust this condition based on your data
+        : true;
+
+      return categoryMatch && brandMatch && discountMatch;
+    });
+  }, [products, selectedCategories, selectedBrands, discountFilter]);
+  
   return (
     <div className="pt-16 min-h-screen ">
       {/* Header Banner */}
