@@ -48,13 +48,13 @@ const SignUp = () => {
     e.preventDefault();
     try {
       validateForm();
-  
+
       const response = await fetch("/api/v1/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-  
+
       if (!response.ok) throw new Error("Sign-up failed");
       alert("Check your email to verify your account!");
     } catch (err) {
@@ -73,7 +73,7 @@ const SignUp = () => {
           value={formData.username}
           onChange={handleChange}
           required
-          className="w-full p-2 mb-4 border rounded"
+          className="w-full p-3 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <input
           type="tel"
