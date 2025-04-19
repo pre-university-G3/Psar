@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     username: "",
     phoneNumber: "",
@@ -75,6 +77,7 @@ const SignUp = () => {
           profile: "",
         });
         alert("Verification email sent! Check your inbox (and spam folder).");
+        navigate("/verify-email");
       }
     } catch (err) {
       setError(err.message);
