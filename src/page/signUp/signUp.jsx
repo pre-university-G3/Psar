@@ -31,9 +31,27 @@ const SignUp = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  // Add validation logic in handleSubmit
+  const validateForm = () => {
+    if (formData.password !== formData.confirmPassword) {
+      throw new Error("Passwords do not match");
+    }
+    if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      throw new Error("Invalid email format");
+    }
+    if (formData.password.length < 8) {
+      throw new Error("Password must be at least 8 characters");
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Handle form submission
+    try {
+      validateForm();
+      // Proceed to API call
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   return (
