@@ -1,29 +1,58 @@
 // src/pages/VerifyEmail.jsx
-import { useEffect } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const VerifyEmail = () => {
-  const [searchParams] = useSearchParams();
+  const [token, setToken] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const token = searchParams.get("token");
 
-  useEffect(() => {
-    const verifyEmail = async () => {
-      try {
-        const response = await fetch(`/api/v1/auth/verify-email?token=${token}`, {
-          method: "POST",
-        });
-        if (!response.ok) throw new Error("Verification failed");
-        alert("Email verified! You can now log in.");
-        navigate("/login");
-      } catch (err) {
-        alert(err.message);
-      }
-    };
-    verifyEmail();
-  }, [token, navigate]);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError("");
 
-  return <div>Verifying your email...</div>;
+    try {
+      const response = await fetch(`/api/v1/users/verify-email?token=${token}`, {
+        method: "POST",
+      });
+
+      if (!response.ok) throw new Error("Invalid or expired token");
+
+      alert("Email verified successfully!");
+      navigate("/login"); // Redirect to login page
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <div className="max-w-md mx-auto p-4">
+      <h2 className="text-2xl font-bold mb-4">Verify Your Email</h2>
+      <p className="mb-4">Enter the token sent to your email:</p>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Verification Token"
+          value={token}
+          onChange={(e) => setToken(e.target.value)}
+          required
+          className="w-full p-2 mb-4 border rounded"
+        />
+        <button
+          type="submit"
+          disabled={isLoading}
+          className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+        >
+          {isLoading ? "Verifying..." : "Verify Email"}
+        </button>
+        {error && <p className="text-red-500 mt-2">{error}</p>}
+      </form>
+    </div>
+  );
 };
 
 export default VerifyEmail;
