@@ -1,5 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { AuthProvider } from "./context/AuthContext.jsx";
 import "./index.css";
 import App from "./App.jsx";
 import Aboutus from "./page/aboutus/Aboutus.jsx";
@@ -22,28 +23,29 @@ import Login from "./page/login/login.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route element={<RootLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/aboutus" element={<Aboutus />} />
-          <Route path="/shopping-cart" element={<ShoppingCart />} />
-          <Route path="/product-listing" element={<ProductListing />} />
-          <Route path="/product-detail/:id" element={<ProductDetail />} />
-          <Route path="/create-account" element={<CreateAccount />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/payment" element={<Payment />} />
-          <Route path="/shipping" element={<Shipping />} />
-          <Route path="/devlivery" element={<Delivery />} />
-          <Route path="/sign-up" element = {<SignUp />} />
-          <Route path="/verify-page" element={<VerifyEmail />} />
-          <Route path="/login-page" element={<Login />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Route>
-        <Route path="/sign-in" element={<SignIn />} />
-
-      </Routes>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<RootLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/aboutus" element={<Aboutus />} />
+            <Route path="/shopping-cart" element={<ShoppingCart />} />
+            <Route path="/product-listing" element={<ProductListing />} />
+            <Route path="/product-detail/:id" element={<ProductDetail />} />
+            <Route path="/create-account" element={<CreateAccount />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/payment" element={<Payment />} />
+            <Route path="/shipping" element={<Shipping />} />
+            <Route path="/devlivery" element={<Delivery />} />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/verify-page" element={<VerifyEmail />} />
+            <Route path="/login-page" element={<Login />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Route>
+          <Route path="/sign-in" element={<SignIn />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
     <App />
   </StrictMode>
 );
