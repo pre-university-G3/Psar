@@ -48,7 +48,15 @@ const SignUp = () => {
     e.preventDefault();
     try {
       validateForm();
-      // Proceed to API call
+  
+      const response = await fetch("/api/v1/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+  
+      if (!response.ok) throw new Error("Sign-up failed");
+      alert("Check your email to verify your account!");
     } catch (err) {
       setError(err.message);
     }
