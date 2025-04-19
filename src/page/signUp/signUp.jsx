@@ -60,12 +60,31 @@ const SignUp = () => {
 
       if (!response.ok) throw new Error("Sign-up failed");
       alert("Check your email to verify your account!");
+      if (response.ok) {
+        setFormData({
+          username: "",
+          phoneNumber: "",
+          address: {
+            addressLine1: "",
+            addressLine2: "",
+            road: "",
+            linkAddress: "",
+          },
+          email: "",
+          password: "",
+          confirmPassword: "",
+          profile: "",
+        });
+        alert("Verification email sent! Check your inbox (and spam folder).");
+      }
     } catch (err) {
       setError(err.message);
     } finally {
       setIsLoading(false);
     }
   };
+
+  
 
   return (
     <div className="max-w-md mx-auto p-4">
