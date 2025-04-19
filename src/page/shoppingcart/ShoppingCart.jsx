@@ -21,6 +21,7 @@ const ShoppingCart = () => {
     //   quantity: 2,
     // },
   ]);
+  
 
   const formatPrice = (price) => {
     return (
@@ -64,6 +65,7 @@ const ShoppingCart = () => {
   const discount = subtotal * 0.1; // 10% discount
   const total = subtotal - discount;
 
+  
   return (
     <main className="container mx-auto px-4 py-30">
       <header className="mb-8">
