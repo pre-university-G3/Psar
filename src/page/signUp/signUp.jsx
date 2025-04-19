@@ -1,4 +1,3 @@
-// src/pages/SignUp.jsx
 import { useState } from "react";
 
 const SignUp = () => {
@@ -44,8 +43,12 @@ const SignUp = () => {
     }
   };
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
+    setError("");
     try {
       validateForm();
 
@@ -59,12 +62,14 @@ const SignUp = () => {
       alert("Check your email to verify your account!");
     } catch (err) {
       setError(err.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="max-w-md mx-auto p-4">
-      <h2 className="text-2xl text-amber-200 font-bold mb-[124px]">Sign Up</h2>
+      <h1 className="text-2xl text-amber-200 font-bold my-[64px]">Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -156,7 +161,7 @@ const SignUp = () => {
           type="submit"
           className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
         >
-          Sign Up
+         {isLoading ? "Signing Up..." : 'Sign Up'}
         </button>
         {error && <p className="text-red-500 mt-2">{error}</p>}
       </form>
