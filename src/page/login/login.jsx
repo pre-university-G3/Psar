@@ -1,4 +1,4 @@
- import { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -7,22 +7,24 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  // Add validation for email format and password length
+  const validateForm = () => {
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      throw new Error("Invalid email format");
+    }
+    if (password.length < 8) {
+      throw new Error("Password must be at least 8 characters");
+    }
+  };
+
+  // Update handleSubmit:
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
     try {
-      // Simulate API call
-      const response = await fetch("/api/v1/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
-
-      if (!response.ok) throw new Error("Invalid email or password");
-
-      // Redirect to dashboard on success
-      navigate("/dashboard");
+      validateForm(); // Validate before API call
+      // ... existing API call ...
     } catch (err) {
       setError(err.message);
     }
