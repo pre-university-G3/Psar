@@ -18,6 +18,7 @@ import Delivery from "./page/payment/Devlivery.jsx";
 import PageNotFound from "./page/pageNotFound/PageNotFound.jsx";
 import SignUp from "./page/signUp/signUp.jsx";
 import VerifyEmail from "./page/verifyPage/verifyPage.jsx";
+import Login from "./page/login/login.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -36,6 +37,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/devlivery" element={<Delivery />} />
           <Route path="/sign-up" element = {<SignUp />} />
           <Route path="/verify-page" element={<VerifyEmail />} />
+          <Route path="/login-page" element={<Login />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>
         <Route path="/sign-in" element={<SignIn />} />

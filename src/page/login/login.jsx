@@ -17,18 +17,30 @@ const Login = () => {
     }
   };
 
-  // Update handleSubmit:
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     setError("");
-
+  
     try {
-      validateForm(); // Validate before API call
-      // ... existing API call ...
+      validateForm();
+      const response = await fetch("/api/v1/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+  
+      if (!response.ok) throw new Error("Invalid email or password");
+      navigate("/dashboard");
     } catch (err) {
       setError(err.message);
+    } finally {
+      setIsLoading(false);
     }
   };
+1  
 
   return (
     <div className="max-w-md mx-auto p-4">
