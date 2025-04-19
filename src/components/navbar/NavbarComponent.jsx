@@ -3,6 +3,8 @@ import { FaMoon, FaSun, FaBars, FaTimes } from "react-icons/fa";
 // Make sure this path is correct - adjust according to your project structure
 import logo from "../../../public/logo/logo.png";
 import { Link, NavLink } from "react-router-dom"; // Fixed import from "react-router" to "react-router-dom"
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function NavbarComponent() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -54,6 +56,17 @@ function NavbarComponent() {
   const isMobile = windowWidth < 768;
   // const isTablet = windowWidth >= 768 && windowWidth < 1024;
   const isLaptop = windowWidth >= 1024;
+
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    const confirmLogout = window.confirm("Are you sure you want to log out?");
+    if (confirmLogout) {
+      logout(); // Clear session
+      navigate("/login"); // Redirect to login
+    }
+  };
 
   return (
     <header
@@ -153,7 +166,7 @@ function NavbarComponent() {
             {/* Auth Buttons */}
             {!isMobile && (
               <div className="flex items-center space-x-2">
-                <NavLink className="block text-white py-2" to="/signUp">
+                {/* <NavLink className="block text-white py-2" to="/signUp">
                   Sign up
                 </NavLink>
                 <NavLink
@@ -161,7 +174,32 @@ function NavbarComponent() {
                   className="bg-indigo-600 text-white px-4 py-1.5 rounded-md hover:bg-indigo-700"
                 >
                   Login
-                </NavLink>
+                </NavLink> */}
+                {user ? (
+                  // Show logout button if user is logged in
+                  <button
+                    onClick={handleLogout}
+                    className="text-white hover:text-red-300"
+                  >
+                    Logout
+                  </button>
+                ) : (
+                  // Show login/signup links if user is not logged in
+                  <>
+                    <Link
+                      to="/login"
+                      className="bg-indigo-600 text-white px-4 py-1.5 rounded-md hover:bg-indigo-700"
+                    >
+                      Login
+                    </Link>
+                    <Link
+                      to="/sign-up"
+                      className="block text-white py-2"
+                    >
+                      Sign Up
+                    </Link>
+                  </>
+                )}
               </div>
             )}
 
