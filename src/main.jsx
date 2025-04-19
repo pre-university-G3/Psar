@@ -16,6 +16,7 @@ import Payment from "./page/payment/Payment.jsx";
 import Shipping from "./page/payment/Shipping.jsx";
 import Delivery from "./page/payment/Devlivery.jsx";
 import PageNotFound from "./page/pageNotFound/PageNotFound.jsx";
+import SignUp from "./page/signUp/signUp.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -32,6 +33,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/payment" element={<Payment />} />
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/devlivery" element={<Delivery />} />
+          <Route path="/sign-up" element = {<SignUp />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>
         <Route path="/sign-in" element={<SignIn />} />
