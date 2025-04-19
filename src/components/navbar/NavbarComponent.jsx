@@ -153,7 +153,7 @@ function NavbarComponent() {
             {/* Auth Buttons */}
             {!isMobile && (
               <div className="flex items-center space-x-2">
-                <NavLink className="block text-white py-2" to="/sign-up">
+                <NavLink className="block text-white py-2" to="/signUp">
                   Sign up
                 </NavLink>
                 <NavLink
