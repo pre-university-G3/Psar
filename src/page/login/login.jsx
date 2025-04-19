@@ -27,17 +27,19 @@ const Login = () => {
 
     try {
       validateForm();
-      const response = await fetch("https://ishop-api.istad.co/api/v1/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch(
+        "https://ishop-api.istad.co/api/v1/auth/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        }
+      );
       if (!response.ok) throw new Error("Invalid email or password");
 
       const userData = await response.json();
       login(userData); // Update auth state
       navigate("/product-listing");
-      
     } catch (err) {
       setError(err.message);
     } finally {
@@ -45,6 +47,8 @@ const Login = () => {
     }
   };
   1;
+
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="max-w-md mx-auto p-4">
@@ -59,7 +63,7 @@ const Login = () => {
           className="w-full p-2 mb-4 border rounded"
         />
         <input
-          type="password"
+          type={showPassword ? "text" : "password"}
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -71,6 +75,13 @@ const Login = () => {
           className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
         >
           {isLoading ? "Logging In..." : "Log In"}
+        </button>
+        <button
+          type="button"
+          onClick={() => setShowPassword(!showPassword)}
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500"
+        >
+          {showPassword ? "Hide" : "Show"}
         </button>
         {error && <p className="text-red-500 mt-2">{error}</p>}
         <div className="mt-4 text-center">
