@@ -76,8 +76,8 @@ const SignUp = () => {
           confirmPassword: "",
           profile: "",
         });
+        navigate("/verify-page");
         alert("Verification email sent! Check your inbox (and spam folder).");
-        navigate("/verify-email");
       }
     } catch (err) {
       setError(err.message);

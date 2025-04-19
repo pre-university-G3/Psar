@@ -1,4 +1,3 @@
-// src/pages/VerifyEmail.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -14,7 +13,7 @@ const VerifyEmail = () => {
     setError("");
 
     try {
-      const response = await fetch(`/api/v1/users/verify-email?token=${token}`, {
+      const response = await fetch(`https://ishop-api.istad.co/api/v1/users/verify-email?token=${token}`, {
         method: "POST",
       });
 
