@@ -52,7 +52,7 @@ const Login = () => {
 
   return (
     <div className="max-w-md mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-4">Log In</h2>
+      <h2 className="text-2xl font-bold mt-16 mb-4">Log In Page</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="email"

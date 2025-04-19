@@ -20,7 +20,7 @@ const VerifyEmail = () => {
       if (!response.ok) throw new Error("Invalid or expired token");
 
       alert("Email verified successfully!");
-      navigate("/login-page"); // Redirect to login page
+      navigate("/login"); // Redirect to login page
     } catch (err) {
       setError(err.message);
     } finally {

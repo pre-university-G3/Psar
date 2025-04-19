@@ -20,6 +20,7 @@ import PageNotFound from "./page/pageNotFound/PageNotFound.jsx";
 import SignUp from "./page/signUp/signUp.jsx";
 import VerifyEmail from "./page/verifyPage/verifyPage.jsx";
 import Login from "./page/login/login.jsx";
+import PrivateRoute from "./components/PrivateRoute.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -30,7 +31,14 @@ createRoot(document.getElementById("root")).render(
             <Route path="/" element={<Home />} />
             <Route path="/aboutus" element={<Aboutus />} />
             <Route path="/shopping-cart" element={<ShoppingCart />} />
-            <Route path="/product-listing" element={<ProductListing />} />
+            <Route
+              path="/product-listing"
+              element={
+                <PrivateRoute>
+                  <ProductListing />
+                </PrivateRoute>
+              }
+            />
             <Route path="/product-detail/:id" element={<ProductDetail />} />
             <Route path="/create-account" element={<CreateAccount />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
@@ -39,7 +47,7 @@ createRoot(document.getElementById("root")).render(
             <Route path="/devlivery" element={<Delivery />} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/verify-page" element={<VerifyEmail />} />
-            <Route path="/login-page" element={<Login />} />
+            <Route path="/login" element={<Login />} />
             <Route path="*" element={<PageNotFound />} />
           </Route>
           <Route path="/sign-in" element={<SignIn />} />
