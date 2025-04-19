@@ -23,24 +23,24 @@ const Login = () => {
     e.preventDefault();
     setIsLoading(true);
     setError("");
-  
+
     try {
       validateForm();
-      const response = await fetch("/api/v1/auth/login", {
+      const response = await fetch("https://ishop-api.istad.co/api/v1/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
-  
+
       if (!response.ok) throw new Error("Invalid email or password");
-      navigate("/dashboard");
+      navigate("/product-listing");
     } catch (err) {
       setError(err.message);
     } finally {
       setIsLoading(false);
     }
   };
-1  
+  1;
 
   return (
     <div className="max-w-md mx-auto p-4">
@@ -66,7 +66,7 @@ const Login = () => {
           type="submit"
           className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
         >
-          Log In
+          {isLoading ? "Logging In..." : "Log In"}
         </button>
         {error && <p className="text-red-500 mt-2">{error}</p>}
         <div className="mt-4 text-center">
