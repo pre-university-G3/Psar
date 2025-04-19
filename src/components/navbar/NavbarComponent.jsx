@@ -3,6 +3,7 @@ import { FaMoon, FaSun, FaBars, FaTimes } from "react-icons/fa";
 // Make sure this path is correct - adjust according to your project structure
 import logo from "../../../public/logo/logo.png";
 import { Link, NavLink } from "react-router-dom"; // Fixed import from "react-router" to "react-router-dom"
+import { useAuth } from "../../context/AuthContext";
 
 function NavbarComponent() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -54,6 +55,20 @@ function NavbarComponent() {
   const isMobile = windowWidth < 768;
   // const isTablet = windowWidth >= 768 && windowWidth < 1024;
   const isLaptop = windowWidth >= 1024;
+
+  const Header = () => {
+    const { user, logout } = useAuth();
+  
+    return (
+      <header>
+        {user ? (
+          <button onClick={logout}>Log Out</button>
+        ) : (
+          <Link to="/login">Log In</Link>
+        )}
+      </header>
+    );
+  };
 
   return (
     <header
