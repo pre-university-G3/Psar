@@ -25,7 +25,7 @@ const ShoppingCart = () => {
           {
             method: "GET",
             headers: {
-              Authorization: `Bearer ${user.accessToken}`, // Include the token for authentication
+              Authorization: `Bearer ${user.accessToken}`, 
             },
           }
         );
@@ -60,7 +60,7 @@ const ShoppingCart = () => {
 
   const calculateSubtotal = () => {
     return cartItems.reduce(
-      (total, item) => total + item.price * item.quantity,
+      (total, item) => total + item.totalPrice * item.quantity,
       0
     );
   };
@@ -68,7 +68,7 @@ const ShoppingCart = () => {
   const handleIncrement = (id) => {
     setCartItems(
       cartItems.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+        item.productUuid === id ? { ...item, quantity: item.quantity + 1 } : item
       )
     );
   };
@@ -76,7 +76,7 @@ const ShoppingCart = () => {
   const handleDecrement = (id) => {
     setCartItems(
       cartItems.cartItems.map((item) =>
-        item.id === id && item.quantity > 1
+        item.productUuid === id && item.quantity > 1
           ? { ...item, quantity: item.quantity - 1 }
           : item
       )
@@ -84,7 +84,7 @@ const ShoppingCart = () => {
   };
 
   const handleRemove = (id) => {
-    setCartItems(cartItems.filter((item) => item.id !== id));
+    setCartItems(cartItems.filter((item) => item.productUuid !== id));
   };
 
   const subtotal = calculateSubtotal() ;
@@ -134,13 +134,13 @@ const ShoppingCart = () => {
                         </div>
                       </td>
                       <td className="px-2 py-4 text-center hidden sm:table-cell">
-                        {formatPrice(item.price)}
+                        {formatPrice(item.totalPrice)}
                       </td>
                       <td className="px-2 py-4">
                         <div className="flex justify-center">
                           <div className="flex items-center border border-gray-300 rounded-full px-2 py-1 quantity-control">
                             <button
-                              onClick={() => handleDecrement(item.id)}
+                              onClick={() => handleDecrement(item.productUuid)}
                               className="px-1 decrement-btn rounded-l-full"
                             >
                               <svg
@@ -162,7 +162,7 @@ const ShoppingCart = () => {
                               {item.quantity}
                             </span>
                             <button
-                              onClick={() => handleIncrement(item.id)}
+                              onClick={() => handleIncrement(item.productUuid)}
                               className="px-1 increment-btn rounded-r-full"
                             >
                               <svg
@@ -184,11 +184,11 @@ const ShoppingCart = () => {
                         </div>
                       </td>
                       <td className="px-2 py-4 text-center hidden md:table-cell subtotal-value">
-                        {formatPrice(item.price * item.quantity)}
+                        {formatPrice(item.totalPrice * item.quantity)}
                       </td>
                       <td className="px-2 py-4 text-center">
                         <button
-                          onClick={() => handleRemove(item.id)}
+                          onClick={() => handleRemove(item.productUuid)}
                           className="text-gray-400 hover:text-red-500 remove-btn transition-colors"
                         >
                           <svg
