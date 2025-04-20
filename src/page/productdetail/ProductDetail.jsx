@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useParams } from 'react-router';
 import getProductByuuid from '../../api/getProductByuuid';
+import AddToCart from '../AddToCart/AddToCart';
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -50,6 +51,7 @@ export default function ProductDetail() {
             <NavLink  to ="/shopping-cart" className="w-2/3 py-3 text-center bg-black text-white font-medium">
               Add to cart
             </NavLink>
+            <AddToCart product={product}/>
           </div>
         </section>
       </article>

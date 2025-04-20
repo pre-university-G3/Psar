@@ -1,6 +1,6 @@
 // src/components/AddToCart.jsx
 import { useState, useContext } from "react";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 
 const AddToCart = ({ product }) => {
   const { user } = useAuth();
@@ -20,15 +20,21 @@ const AddToCart = ({ product }) => {
     setSuccess(false);
 
     try {
-      const response = await fetch("/api/v1/carts/add-to-cart", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          userUuid: user.uuid, // Assuming user has a `uuid` field
-          productUuid: product.uuid,
-          quantity,
-        }),
-      });
+      const response = await fetch(
+        "https://ishop-api.istad.co/api/v1/carts/add-to-cart",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user.accessToken}`,
+          },
+          body: JSON.stringify({
+            userUuid: user.user.uuid, 
+            productUuid: product.uuid,
+            quantity,
+          }),
+        }
+      );
 
       if (!response.ok) throw new Error("Failed to add item to cart");
       setSuccess(true);
