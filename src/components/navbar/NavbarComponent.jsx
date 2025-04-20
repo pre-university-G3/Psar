@@ -3,6 +3,8 @@ import { FaMoon, FaSun, FaBars, FaTimes } from "react-icons/fa";
 // Make sure this path is correct - adjust according to your project structure
 import logo from "../../../public/logo/logo.png";
 import { Link, NavLink } from "react-router-dom"; // Fixed import from "react-router" to "react-router-dom"
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function NavbarComponent() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -55,6 +57,17 @@ function NavbarComponent() {
   // const isTablet = windowWidth >= 768 && windowWidth < 1024;
   const isLaptop = windowWidth >= 1024;
 
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    const confirmLogout = window.confirm("Are you sure you want to log out?");
+    if (confirmLogout) {
+      logout(); // Clear session
+      navigate("/login"); // Redirect to login
+    }
+  };
+
   return (
     <header
       className={`fixed top-[0] w-full z-50 transition-colors duration-300 ${
@@ -66,6 +79,27 @@ function NavbarComponent() {
           {/* Logo */}
           <NavLink to="/" className="flex items-center">
             <img src={logo} alt="logo" className="h-10" />
+            <nav className=" text-white py-1 px-6 flex justify-between items-center">
+              {!user ? (
+                <div className="text-sm font-medium">Guest</div>
+              ) : user ? (
+                <div className="flex items-center space-x-3">
+                  <img
+                    src={
+                      user.user.profile ||
+                      "https://picsum.photos/200"
+                    }
+                    alt="User Profile"
+                    className="w-10 h-10 rounded-full object-cover"
+                  />
+                  <span className="text-sm font-medium">
+                    {user.user.username}
+                  </span>
+                </div>
+              ) : (
+                <div className="text-sm font-medium">Guest</div>
+              )}
+            </nav>
           </NavLink>
 
           {/* Desktop Navigation */}
@@ -123,6 +157,12 @@ function NavbarComponent() {
                     )}
                   </div>
                   <NavLink
+                    to="/shopping-cart"
+                    className="text-white hover:text-red-500"
+                  >
+                    Shopping Cart
+                  </NavLink>
+                  <NavLink
                     to="/aboutus"
                     className="text-white hover:text-red-500"
                   >
@@ -153,7 +193,7 @@ function NavbarComponent() {
             {/* Auth Buttons */}
             {!isMobile && (
               <div className="flex items-center space-x-2">
-                <NavLink className="block text-white py-2" to="/sign-up">
+                {/* <NavLink className="block text-white py-2" to="/signUp">
                   Sign up
                 </NavLink>
                 <NavLink
@@ -161,7 +201,29 @@ function NavbarComponent() {
                   className="bg-indigo-600 text-white px-4 py-1.5 rounded-md hover:bg-indigo-700"
                 >
                   Login
-                </NavLink>
+                </NavLink> */}
+                {user ? (
+                  // Show logout button if user is logged in
+                  <button
+                    onClick={handleLogout}
+                    className="text-white hover:text-red-300"
+                  >
+                    Logout
+                  </button>
+                ) : (
+                  // Show login/signup links if user is not logged in
+                  <>
+                    <Link
+                      to="/login"
+                      className="bg-indigo-600 text-white px-4 py-1.5 rounded-md hover:bg-indigo-700"
+                    >
+                      Login
+                    </Link>
+                    <Link to="/sign-up" className="block text-white py-2">
+                      Sign Up
+                    </Link>
+                  </>
+                )}
               </div>
             )}
 
