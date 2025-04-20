@@ -1,26 +1,53 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { NavLink } from "react-router";
+import { useAuth } from "../../context/AuthContext";
 // import { FaBars, FaTimes, FaMoon, FaSun } from "react-icons/fa"; // Added FaMoon and FaSun
 
 const ShoppingCart = () => {
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: "MacBook Pro M1 14-inch (2025)",
-      image:
-        "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spaceblack-gallery1-202410?wid=4000&hei=3074&fmt=jpeg&qlt=90&.v=1729264981617",
-      price: 1999.99,
-      quantity: 1,
-    },
-    {
-      id: 2,
-      name: "Featuring an AMD® Dragon Range R9 Processer, an NVIDIA GeForce RTX™ 4070 Laptop GPU with NVIDIA Advanced Optimus",
-      image:
-        "https://www.mistore-greece.gr/getmetafile/fe5f50f0-c943-4c24-acae-dc239e7e893c/14t-pro-black.aspx",
-      price: 2199.0,
-      quantity: 2,
-    },
-  ]);
+
+  const { user } = useAuth();
+  const [cartItems, setCartItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchCartItems = async () => {
+      if (!user) {
+        setError("You must be logged in to view your cart.");
+        setIsLoading(false);
+        return;
+      }
+      console.log({ uuid: user.user.uuid, token: user.accessToken });
+
+      try {
+        const response = await fetch(
+          `https://ishop-api.istad.co/api/v1/carts/get-by-user/${user.user.uuid}`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${user.accessToken}`, // Include the token for authentication
+            },
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch cart items");
+        }
+
+        const data = await response.json();
+        const cartItemNew = data.cartItems;
+        console.log({cartItemNew})
+        setCartItems(cartItemNew); 
+        setError("");
+      } catch (err) {
+        setError(err.message || "Something went wrong. Please try again.");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchCartItems();
+  }, [user]);
 
   const formatPrice = (price) => {
     return (
@@ -48,7 +75,7 @@ const ShoppingCart = () => {
 
   const handleDecrement = (id) => {
     setCartItems(
-      cartItems.map((item) =>
+      cartItems.cartItems.map((item) =>
         item.id === id && item.quantity > 1
           ? { ...item, quantity: item.quantity - 1 }
           : item
@@ -60,9 +87,13 @@ const ShoppingCart = () => {
     setCartItems(cartItems.filter((item) => item.id !== id));
   };
 
-  const subtotal = calculateSubtotal();
+  const subtotal = calculateSubtotal() ;
+  // const subtotal = 100;
   const discount = subtotal * 0.1; // 10% discount
   const total = subtotal - discount;
+
+
+  if (isLoading) return <h1>Loading...</h1>
 
   return (
     <main className="container mx-auto px-4 py-30">
