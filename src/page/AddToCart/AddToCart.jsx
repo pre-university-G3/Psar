@@ -29,7 +29,7 @@ const AddToCart = ({ product }) => {
             Authorization: `Bearer ${user.accessToken}`,
           },
           body: JSON.stringify({
-            userUuid: user.user.uuid, 
+            userUuid: user.user.uuid,
             productUuid: product.uuid,
             quantity,
           }),
@@ -47,8 +47,15 @@ const AddToCart = ({ product }) => {
   };
 
   return (
-    <div className="mt-4">
-      <div className="flex items-center mb-4">
+    <div className="flex gap-2 justify-center items-center">
+      <button
+        onClick={handleAddToCart}
+        disabled={isLoading}
+        className=" p-3 text-center bg-black text-white font-medium"
+      >
+        {isLoading ? "Adding..." : "Add to Cart"}
+      </button>
+      <div className="flex items-center ">
         <label className="mr-2">Quantity:</label>
         <input
           type="number"
@@ -58,13 +65,6 @@ const AddToCart = ({ product }) => {
           className="border p-1 rounded w-16"
         />
       </div>
-      <button
-        onClick={handleAddToCart}
-        disabled={isLoading}
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:bg-gray-400"
-      >
-        {isLoading ? "Adding..." : "Add to Cart"}
-      </button>
       {error && <p className="text-red-500 mt-2">{error}</p>}
       {success && <p className="text-green-500 mt-2">Item added to cart!</p>}
     </div>

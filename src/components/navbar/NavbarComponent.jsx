@@ -79,6 +79,27 @@ function NavbarComponent() {
           {/* Logo */}
           <NavLink to="/" className="flex items-center">
             <img src={logo} alt="logo" className="h-10" />
+            <nav className=" text-white py-1 px-6 flex justify-between items-center">
+              {!user ? (
+                <div className="text-sm font-medium">Guest</div>
+              ) : user ? (
+                <div className="flex items-center space-x-3">
+                  <img
+                    src={
+                      user.user.profile ||
+                      "https://picsum.photos/200"
+                    }
+                    alt="User Profile"
+                    className="w-10 h-10 rounded-full object-cover"
+                  />
+                  <span className="text-sm font-medium">
+                    {user.user.username}
+                  </span>
+                </div>
+              ) : (
+                <div className="text-sm font-medium">Guest</div>
+              )}
+            </nav>
           </NavLink>
 
           {/* Desktop Navigation */}
