@@ -31,14 +31,7 @@ createRoot(document.getElementById("root")).render(
             <Route path="/" element={<Home />} />
             <Route path="/aboutus" element={<Aboutus />} />
             <Route path="/shopping-cart" element={<ShoppingCart />} />
-            <Route
-              path="/product-listing"
-              element={
-                <PrivateRoute>
-                  <ProductListing />
-                </PrivateRoute>
-              }
-            />
+            <Route path="/product-listing" element={<ProductListing />} />
             <Route path="/product-detail/:id" element={<ProductDetail />} />
             <Route path="/create-account" element={<CreateAccount />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
