@@ -79,7 +79,7 @@ function NavbarComponent() {
           {/* Logo */}
           <NavLink to="/" className="flex items-center">
             <img src={logo} alt="logo" className="h-10" />
-            <nav className=" text-white py-4 px-6 flex justify-between items-center">
+            <nav className=" text-white py-1 px-6 flex justify-between items-center">
               {!user ? (
                 <div className="text-sm font-medium">Guest</div>
               ) : user ? (
