@@ -12,16 +12,15 @@ const ShoppingCart = () => {
       price: 1999.99,
       quantity: 1,
     },
-    // {
-    //   id: 2,
-    //   name: "Featuring an AMD® Dragon Range R9 Processer, an NVIDIA GeForce RTX™ 4070 Laptop GPU with NVIDIA Advanced Optimus",
-    //   image:
-    //     "https://www.mistore-greece.gr/getmetafile/fe5f50f0-c943-4c24-acae-dc239e7e893c/14t-pro-black.aspx",
-    //   price: 2199.0,
-    //   quantity: 2,
-    // },
+    {
+      id: 2,
+      name: "Featuring an AMD® Dragon Range R9 Processer, an NVIDIA GeForce RTX™ 4070 Laptop GPU with NVIDIA Advanced Optimus",
+      image:
+        "https://www.mistore-greece.gr/getmetafile/fe5f50f0-c943-4c24-acae-dc239e7e893c/14t-pro-black.aspx",
+      price: 2199.0,
+      quantity: 2,
+    },
   ]);
-  
 
   const formatPrice = (price) => {
     return (
@@ -65,7 +64,6 @@ const ShoppingCart = () => {
   const discount = subtotal * 0.1; // 10% discount
   const total = subtotal - discount;
 
-  
   return (
     <main className="container mx-auto px-4 py-30">
       <header className="mb-8">
