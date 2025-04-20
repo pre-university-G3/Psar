@@ -136,6 +136,12 @@ function NavbarComponent() {
                     )}
                   </div>
                   <NavLink
+                    to="/shopping-cart"
+                    className="text-white hover:text-red-500"
+                  >
+                    Shopping Cart
+                  </NavLink>
+                  <NavLink
                     to="/aboutus"
                     className="text-white hover:text-red-500"
                   >
@@ -192,10 +198,7 @@ function NavbarComponent() {
                     >
                       Login
                     </Link>
-                    <Link
-                      to="/sign-up"
-                      className="block text-white py-2"
-                    >
+                    <Link to="/sign-up" className="block text-white py-2">
                       Sign Up
                     </Link>
                   </>
