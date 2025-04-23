@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router";
+import Message from "../../components/button/productdetail/Message";
+import { useNavigate } from "react-router-dom";
 
 const Payment = () => {
+  const navigate = useNavigate();
   const [darkMode, setDarkMode] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("card");
   const [saveInfo, setSaveInfo] = useState(false);
@@ -28,6 +31,19 @@ const Payment = () => {
       saveInfo,
     });
   };
+
+   // State to control visibility of the alert
+   const [isMessageVisible, setIsMessageVisible] = useState(false);
+
+   // Handler to show the alert
+   const showMessage = () => {
+     setIsMessageVisible(true);
+   };
+ 
+   // Handler to hide the alert
+   const hideMessage = () => {
+     setIsMessageVisible(false);
+   };
 
   return (
     <div
@@ -246,10 +262,11 @@ const Payment = () => {
               <span className="text-xl font-bold">$1799.99</span>
             </div>
           </div>
-
-          <NavLink
-            to="/shipping"
+            <Message  isVisible={isMessageVisible} onClose={hideMessage} />
+          <button
+            to=""
             type="submit"
+            onClick={showMessage}
             className={`w-full py-3 px-4 rounded font-bold ${
               darkMode
                 ? "bg-blue-600 hover:bg-blue-700"
@@ -257,7 +274,7 @@ const Payment = () => {
             } text-white transition-colors`}
           >
             Pay $1799.99
-          </NavLink>
+          </button>
         </form>
       </div>
     </div>

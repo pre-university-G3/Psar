@@ -51,7 +51,7 @@ export default function ProductDetail() {
           </div>
 
           <div className="flex w-4/5 mx-auto gap-2 mt-4">
-            <button className="w-1/3 py-3 border-2 font-medium">
+            <button className="w-1/4 py-3 border-2 font-medium">
               ${product.priceOut.toFixed(2)}
             </button>
             {/* <NavLink
@@ -74,7 +74,7 @@ export default function ProductDetail() {
           <h3 className="font-medium mb-2">Select color:</h3>
           <div className="flex flex-wrap gap-2">
             {product.color.map((colorOption, index) => (
-              <button
+              <button 
                 key={index}
                 onClick={() => setSelectedColorIndex(index)}
                 className="flex items-center gap-2 px-3 py-2 rounded focus:outline-none"

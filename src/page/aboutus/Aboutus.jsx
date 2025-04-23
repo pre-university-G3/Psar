@@ -20,11 +20,11 @@ import { faLinkedin, faTelegram, faGithub  } from '@fortawesome/free-brands-svg-
 export default function Aboutus() {
     return(
        <>
-       <div className="bg-[#f8f4ff] p-8">
+       <div className="p-8">
             <div className="max-w-6xl mx-auto grid gap-6">
                 {/* Section 1 */}
                 <section>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 items-center bg-black text-white p-6 rounded-lg">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 items-center text-white bg-black  p-6 rounded-lg">
                     <div>
                         <h2 className="text-3xl font-bold mb-10 ">A Family That Keeps On Growing</h2>
                         <p className="mt-2 text-sm ">
@@ -44,7 +44,7 @@ export default function Aboutus() {
                 </section>
        {/* Section 2 */}     
                 <section>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 items-center bg-gray-100 text-gray p-6 rounded-lg">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 items-center  text-gray p-6 rounded-lg">
                 <div className='flex justify-center'>
                         <img src={img2} alt="Office"
                             className="w-[50%] rounded-lg shadow-lg"/>
@@ -54,7 +54,7 @@ export default function Aboutus() {
                         <img 
                             src={logo1}
                             alt="Office"
-                            className="w-[12%]"/>
+                            className=""/>
                         <h2 className="text-4xl font-bold mb-10 ">Tech-7</h2>
                         </div>
                         <p className="mt-2 text-sm ">
@@ -65,16 +65,16 @@ export default function Aboutus() {
              </section>
           {/* Section 3 */}
             <section>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 items-center bg-black text-white p-6 rounded-lg">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 items-center bg-black  p-6 rounded-lg">
                     <div>
                     <div className='flex'>
                         <img 
                             src={logo2}
                             alt="Office"
-                            className="w-[10%]"/>
-                        <h2 className="text-4xl font-bold mb-10 ">Now You're In Safe Hands</h2>
+                            className=""/>
+                        <h2 className="text-4xl font-bold mb-10 text-white ">Now You're In Safe Hands</h2>
                         </div>
-                        <p className="mt-2 text-sm ">
+                        <p className="mt-2 text-sm text-white ">
                         Experience a 40% boost in computing from last generation. MSI Desktop equips the 10th Gen. Intel® Core™ i7 processor with the upmost computing power to bring you an unparalleled gaming experience.
                         *Performance compared to i7-9700. Specs varies by model.
                         </p>
@@ -90,7 +90,7 @@ export default function Aboutus() {
 
         {/* Section 4 */}
             <section>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 items-center bg-gray-100 text-gray p-6 rounded-lg">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 items-center text-gray p-6 rounded-lg">
                 <div className='flex justify-center'>
                         <img 
                             src={img4}
@@ -102,7 +102,7 @@ export default function Aboutus() {
                         <img 
                             src={logo3}
                             alt="Office"
-                            className="w-[10%]"/>
+                            className=""/>
                         <h2 className="text-3xl font-bold mb-10 ">The Highest Quality of Products</h2>
                         </div>
                         <p className="mt-2 text-sm ">
@@ -117,21 +117,21 @@ export default function Aboutus() {
            <h3 className="flex  justify-center m-auto  font-medium text-[35px] py-[40px]">
                OUR MENTOR
         </h3>
-        <div className="w-[90%] h-[auto] bg-gray-100  m-auto    rounded-[20px]  grid max-sm:grid-cols-1   sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
-          <div className="w-[300px] h-[320px] bg-white m-auto rounded-[25px] max-sm:mt-[190px]  mt-[190px] mb-[200px] md:mb-[100px] ">
+        <div className="w-[90%] h-[auto] bg-gray-100  m-auto  rounded-[20px]  grid max-sm:grid-cols-1   sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+          <div className="w-[300px] h-[320px]  m-auto rounded-[25px] max-sm:mt-[190px]  mt-[190px] mb-[200px] md:mb-[100px] ">
             <figure className="w-[210px] h-[210px] rounded-[150px] m-auto relative top-[-100px] bg-amber-200 border-[6px] ">
             <img 
                src={logopheng}
                   alt="Office"
                   className="w-[100%] rounded-lg shadow-lg" />
             </figure>
-            <h3 className="flex w-full justify-center relative top-[-100px] text-[25px]">
+            <h3 className="flex text-black w-full justify-center relative top-[-100px] text-[25px]">
               Kim Chansokpheng
             </h3>
-            <p className="flex w-full justify-center relative top-[-100px] text-[20px]">
+            <p className="flex w-full text-black justify-center relative top-[-100px] text-[20px]">
               Instructor
             </p>
-            <ul className="flex justify-center relative gap-10 top-[-50px]">
+            <ul className="flex justify-center text-black relative gap-10 top-[-50px]">
                 <li><FontAwesomeIcon icon={faLinkedin} size="2xl" /></li>
                 <li><FontAwesomeIcon icon={faTelegram} size="2xl" /></li>
                 <li><FontAwesomeIcon icon={faGithub} size="2xl" /></li>
@@ -144,13 +144,13 @@ export default function Aboutus() {
                   alt="Office"
                   className="w-[100%] rounded-lg shadow-lg" />
             </figure>
-            <h3 className="flex w-full justify-center relative top-[-100px] text-[25px]">
+            <h3 className="flex w-full justify-center text-black relative top-[-100px] text-[25px]">
               Sin Sreyphea
             </h3>
-            <p className="flex w-full justify-center relative top-[-100px] text-[20px]">
+            <p className="flex w-full justify-center text-black relative top-[-100] text-[20px]">
               Instructor
             </p>
-            <ul className="flex justify-center relative gap-10 top-[-50px]">
+            <ul className="flex justify-center text-black relative gap-10 top-[-50px]">
                 <li><FontAwesomeIcon icon={faLinkedin} size="2xl" /></li>
                 <li><FontAwesomeIcon icon={faTelegram} size="2xl" /></li>
                 <li><FontAwesomeIcon icon={faGithub} size="2xl" /></li>
@@ -353,7 +353,7 @@ export default function Aboutus() {
           </label>
         </div>
         <div className="w-full flex justify-center ">
-        <button className="bg-blue-600 mt-[10px] py-[10px] px-[70px] rounded-4xl  text-white font-medium ">
+        <button className="bg-blue-600 mt-[10px] py-[10px] px-[70px] rounded-4xl   font-medium ">
           Submit
         </button>
         </div>

@@ -107,12 +107,12 @@ const ProductListing = () => {
               You're choose the <span className="text-purple-500">Right</span>{" "}
               place to buy your favorite thing!
             </h1>
-            <h2 className="text-4xl font-bold text-black">Apple iMac</h2>
+            <h2 className="text-4xl font-bold text-black">Republic Of Gamers</h2>
             <div className="absolute right-8 top-1/2 -translate-y-1/2">
               <img
                 src="https://dlcdnwebimgs.asus.com/gain/30B02883-1847-4CA8-80AC-393A69BB7CD2/w250"
                 alt="Apple iMac Lineup"
-                className="h-24"
+                className="h-40"
               />
             </div>
           </div>

@@ -290,7 +290,7 @@ const ShoppingCart = () => {
               </div>
             </div>
             <NavLink
-              to="/payment"
+              to="/shipping"
               className="w-full mt-4 px-6 py-4 bg-blue-600 rounded-full text-white text-center font-semibold hover:bg-blue-700 transition"
             >
               Proceed to checkout
