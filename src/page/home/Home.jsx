@@ -103,12 +103,12 @@ const HomePage = () => {
   );
 
   return (
-    <div className="min-h-screen bg-pink-50">
+    <div className="min-h-screen ">
       {/* Hero Section */}
       <div className="container mx-auto max-w-7xl px-4 py-8 mt-8">
-        <div className="bg-white rounded-lg p-8 flex flex-col md:flex-row items-center">
+        <div className="bg-blue-50 rounded-lg p-8 flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-6 md:mb-0 md:pr-8">
-            <h1 className="text-3xl font-bold mb-2">
+            <h1 className="text-black text-3xl font-bold mb-2">
               Power meets speed.
               <br />
               The ultimate gaming laptop of 2025.
@@ -134,7 +134,7 @@ const HomePage = () => {
 
       {/* New Products Section */}
       <div className="container mx-auto max-w-7xl px-4 py-8">
-        <h2 className="text-2xl font-bold mb-6">New Products</h2>
+        <h2 className="text-2xl font-bold mb-6 ">New Products</h2>
         <div className="">
           <ProductCart />
         </div>

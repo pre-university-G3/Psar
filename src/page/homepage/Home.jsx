@@ -60,7 +60,7 @@ const HomePage = () => {
           className="h-32 object-contain"
         />
       </div>
-      <h3 className="font-semibold mb-1 text-sm">{product.name}</h3>
+      <h3 className="font-semibold mb-1 text-sm ">{product.name}</h3>
       <div className="flex items-center text-xs text-red-500 mb-2">
         <span className="mr-2">{product.warranty}</span>
         <span>{product.freeDelivery ? 'Free delivery' : ''}</span>
@@ -135,7 +135,7 @@ const HomePage = () => {
       {/* New Arrival Products Section */}
       <div className="container mx-auto max-w-6xl px-4 py-8">
         <h2 className="text-2xl font-bold mb-6">New Arrival Products</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div className=" grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {newArrivalProducts.slice(0, 5).map(product => (
             <ProductCard key={product.id} product={product} />
           ))}
